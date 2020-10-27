@@ -1,0 +1,186 @@
+:root {
+	--the-color: orange;
+	--the-other-color: #c70;
+	--the-color: #eee;
+	--the-other-color: white;
+	--the-background-color: #bbb;
+	--the-header-color: #777;
+	--the-content-color: #ccc;
+}
+
+hr {
+	border: 1px solid var(--the-other-color);
+}
+
+body {
+	background-color: var(--the-background-color);
+	font-family: "Georgia", serif;
+	display: flex;
+	color: #222222;
+}
+
+h1 {
+	font-variant-caps: small-caps;
+	font-family: Georgia, serif;
+	font-size: 40px;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 20px;
+	margin-bottom: 0px;
+}
+
+.container {
+	width: 800px;
+	margin: auto;
+	background-color: var(--the-content-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-image: linear-gradient(#dddddd, #dddddd);
+	padding-bottom: 20px;
+}
+
+.top {
+	order: 1;
+	background-color: var(--the-header-color);
+	padding: 0px 30px 0px 30px;
+	color: var(--the-color);
+}
+
+.middle {
+	margin-top: 10px;
+	order: 2;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 30px 0px 30px;
+}
+
+.bottom {
+	order: 3;
+	background-color: #888888;
+	padding: 0px 30px 0px 30px;
+	color: #dddddd;
+	font-size: 15px;
+	display: none;
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	order: 1;
+}
+
+.photo {
+	border: 2px solid black;
+}
+
+.quote {
+	font-size: 18px;
+	font-family: "Courier", monospace;
+}
+
+.teaching {
+	order: 2;
+}
+
+.jobs {
+	order: 3;
+}
+
+.education {
+	order: 4;
+}
+
+.segment {
+}
+
+
+ul {
+	list-style: none;
+	list-style-position: inside;
+}
+
+li::before {
+	content: "•";
+	font-size: 130%;
+	line-height: 0;
+	margin: 0 0.3rem 0 -0.25rem;
+	position: relative;
+	top: 0.08rem;
+	color: var(--the-other-color);
+}
+
+
+.posts {
+	display: flex;
+	flex-wrap: wrap;
+	flex-flow: row-wrap; 
+	margin:auto;
+	justify-content: center;
+}
+
+.post {
+	margin: 10px;
+	height: 100px;
+	width: calc( (100% / 3) - 20px );
+	padding: 10px;
+}
+
+a.post {
+	text-decoration: none;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #555;
+	font-weight: bold;
+	background-color: white;
+	font-size: 20pt;
+	text-transform: uppercase;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+a:hover.post {
+	color: white;
+	background-color: #555;
+}
+
+.menu {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	margin-bottom: 10px;
+}
+.menu a {
+	color: #555;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.menu a:hover:before {
+	content: '[';
+}
+.menu a:hover:after {
+	content: ']';
+}
+
+.menu a.active:before {
+	content: '[';
+}
+.menu a.active:after {
+	content: ']';
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+p {
+	text-align: justify;
+	text-indent: 1em;
+}

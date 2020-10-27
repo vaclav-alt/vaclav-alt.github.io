@@ -35,5 +35,5 @@ $("#password").keypress(function(e) {
 		loadPage($("#password").val());
 	}
 });
-$("#password").focus();
+// $("#password").focus();
 
