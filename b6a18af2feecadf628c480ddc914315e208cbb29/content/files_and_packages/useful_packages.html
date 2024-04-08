@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Užitečné balíčky &#8212; Základy programování v Pythonu</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/files_and_packages/useful_packages';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Výjimky" href="../exceptions/foreword.html" />
+    <link rel="prev" title="Načítání ze souboru" href="reading_from_files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../foreword.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Základy programování v Pythonu - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Základy programování v Pythonu - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../foreword.html">
+                    Základy programování v Pythonu
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Základy programování v Pythonu</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/foreword.html">Úvod</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">O jazyku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cmd.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/instalace.html">Instalace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/first_program.html">První program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/virtualenv.html">Balíčky a virtuální prostředí</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/ides.html">V čem psát Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_first_program.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_kernels.html">Virtual environment jako Jupyter kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/foreword.html">Datové typy, datový model a správa paměti</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_types.html">Datové typy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/format.html">Formátovaný výstup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_model.html">Datový model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/memory_management.html">CPython data model a správa paměti</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iterations_and_flow_control/foreword.html">Řízení běhu programu</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/conditions.html">Podmínky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/iterace.html">Iterace a cykly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/match.html">Match</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/foreword.html">Funkce</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/funkce.html">Funkce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/lambda.html">Lambda funkce a higher order functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/docstring.html">Docstring a type hints</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typing/foreword.html">Typing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typing/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">Čtení ze souboru a užitečné balíčky</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="reading_from_files.html">Načítání ze souboru</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Užitečné balíčky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exceptions/foreword.html">Výjimky</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/general.html">Mechanismus výjimek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/exceptions.html">Výjimky (exceptions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/custom.html">Vlastní výjimky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../decorator/foreword.html">Dekorátor</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator.html">Dekorátor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator_uses.html">Příklady použití</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../oop/foreword.html">OOP</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oop/oop.html">Objektově orientované programování (OOP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/inheritance.html">Dědičnost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/comp_over_inh.html">Composition vs. inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_science/foreword.html">Numpy, matplotlib a pandas</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/numpy.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> - numerical python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/matplotlib.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/pandas.html">PANDAS</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/fahrenheit.html">Fahrenheitova stupnice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/uctenka.html">Tisk účtenky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/valid_string.html">Valid string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/pretty_print.html">Pretty print slovniku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/caesarova_sifra.html">Casesarova šifra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/primes.html">Prvočísla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/monte_carlo_pi.html">Monte Carlo - obsah kruhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/polynom.html">Polynom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist.html">TODO list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/week_04.html">Úlohy pro 4. týden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/shopping_cart.html">Nákupní košík</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_file.html">Context manager - SafeFileEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_time.html">Timer jako context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability_sol.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist_sol.html">TODO list - řešení</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literatura</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/files_and_packages/useful_packages.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Užitečné balíčky</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prace-s-cestami">Práce s cestami</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-path">os.path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathlib">pathlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutil">shutil</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-os">modul <code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-sys">modul <code class="docutils literal notranslate"><span class="pre">sys</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prebirani-commad-line-argumentu-predanych-skriptu">Přebírání commad-line argumentů předaných skriptu.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ukonceni-programu-s-konkretnim-exit-code">Ukončení programu s konkrétním exit code:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pristup-k-informacim-o-interpretu-ci-systemu">Přístup k informacím o interpretu či systému</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-datetime">Modul <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailni-nastaveni">Detailní nastavení</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="uzitecne-balicky">
+<h1>Užitečné balíčky<a class="headerlink" href="#uzitecne-balicky" title="Link to this heading">#</a></h1>
+<section id="prace-s-cestami">
+<h2>Práce s cestami<a class="headerlink" href="#prace-s-cestami" title="Link to this heading">#</a></h2>
+<section id="os-path">
+<h3>os.path<a class="headerlink" href="#os-path" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>low-level funkcionální přístup</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;/data/unicorn/uc-python&quot;</span>
+<span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;22_23_zs&quot;</span><span class="p">,</span> <span class="s2">&quot;mipy&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/data/unicorn/uc-python/22_23_zs/mipy
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pathlib">
+<h3>pathlib<a class="headerlink" href="#pathlib" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>high-level objektový přístup</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">root</span> <span class="o">=</span>  <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/data/unicorn/uc-python&quot;</span><span class="p">)</span>
+
+<span class="n">full_path</span> <span class="o">=</span> <span class="n">root</span> <span class="o">/</span> <span class="s2">&quot;22_23_zs&quot;</span> <span class="o">/</span> <span class="s2">&quot;mipy&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">full_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">full_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*_live*&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/data/unicorn/uc-python/22_23_zs/mipy
+/data/unicorn/uc-python/22_23_zs/mipy/05_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/config.ini
+/data/unicorn/uc-python/22_23_zs/mipy/modul1.py
+/data/unicorn/uc-python/22_23_zs/mipy/01.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/09_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/config.json
+/data/unicorn/uc-python/22_23_zs/mipy/main.py
+/data/unicorn/uc-python/22_23_zs/mipy/09.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/03_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/02_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/config.toml
+/data/unicorn/uc-python/22_23_zs/mipy/07_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/02.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/10.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/app_signal.py
+/data/unicorn/uc-python/22_23_zs/mipy/10_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/03.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/04_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/waves.py
+/data/unicorn/uc-python/22_23_zs/mipy/07.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/pokus.json
+/data/unicorn/uc-python/22_23_zs/mipy/receipt.py
+/data/unicorn/uc-python/22_23_zs/mipy/good_receipt.py
+/data/unicorn/uc-python/22_23_zs/mipy/app.py
+/data/unicorn/uc-python/22_23_zs/mipy/05_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/09_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/03_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/02_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/07_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/10_live.ipynb
+/data/unicorn/uc-python/22_23_zs/mipy/04_live.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shutil">
+<h3>shutil<a class="headerlink" href="#shutil" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>High-level file operations</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>kopírování</p></li>
+<li><p>přesouvání</p></li>
+<li><p>přístup k právům</p></li>
+<li><p>atd</p></li>
+</ul>
+</section>
+</section>
+<section id="modul-os">
+<h2>modul <code class="docutils literal notranslate"><span class="pre">os</span></code><a class="headerlink" href="#modul-os" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/data/codebase&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/data/unicorn/python/book/content/files_and_packages
+/data/codebase
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PYTHONPATH&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/data/unicorn/pythonbook/venv/bin:/home/vaclav/.local/bin:/home/vaclav/.local/bin:/data/codebase/m2d/bin:/data/codebase/utils/bin:/data/codebase/mptc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/vaclav/.local/share/JetBrains/Toolbox/scripts:/home/vaclav/.local/share/JetBrains/Toolbox/scripts&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modul-sys">
+<h2>modul <code class="docutils literal notranslate"><span class="pre">sys</span></code><a class="headerlink" href="#modul-sys" title="Link to this heading">#</a></h2>
+<p>Modul <code class="docutils literal notranslate"><span class="pre">sys</span></code> je vestavěný modul, který poskytuje jistý interface mezi systémem a pythoním interpretem. Mezi nejčastější využití patří</p>
+<section id="prebirani-commad-line-argumentu-predanych-skriptu">
+<h3>Přebírání commad-line argumentů předaných skriptu.<a class="headerlink" href="#prebirani-commad-line-argumentu-predanych-skriptu" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/vaclav/.local/lib/python3.10/site-packages/ipykernel_launcher.py&#39;, &#39;-f&#39;, &#39;/tmp/tmpy3sys83_.json&#39;, &#39;--HistoryManager.hist_file=:memory:&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Toto je mimořádně matoucí tady v prostředí Jupyter. Pro lepší pochopení uložte předchozí kód do souboru a <code class="docutils literal notranslate"><span class="pre">main.py</span></code> a z příkazové řádky jej spusťte s několik argumenty navíc. Uvidíte toto:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>main.py<span class="w"> </span>arg1<span class="w"> </span>arg2
+<span class="o">[</span><span class="s1">&#39;main.py&#39;</span>,<span class="w"> </span><span class="s1">&#39;arg1&#39;</span>,<span class="w"> </span><span class="s1">&#39;arg1&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Je to běžný způsob, jakým se programům předávají dodatečné argumenty. Pro složitější sadu argumentů se vyplací použít např. vestavěný modul <code class="docutils literal notranslate"><span class="pre">argparse</span></code>.</p>
+</section>
+<section id="ukonceni-programu-s-konkretnim-exit-code">
+<h3>Ukončení programu s konkrétním exit code:<a class="headerlink" href="#ukonceni-programu-s-konkretnim-exit-code" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pristup-k-informacim-o-interpretu-ci-systemu">
+<h3>Přístup k informacím o interpretu či systému<a class="headerlink" href="#pristup-k-informacim-o-interpretu-ci-systemu" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+sys.version_info(major=3, minor=10, micro=12, releaselevel=&#39;final&#39;, serial=0)
+linux
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modul-datetime">
+<h2>Modul <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#modul-datetime" title="Link to this heading">#</a></h2>
+<p>Vestavěný model poskytující běžné funkce pro práci s datem. Asi nejčastší operace, které budete s tímto balíkem provádět, jsou tyto:</p>
+<ol class="arabic simple">
+<li><p>aktuální datum a čas</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52.534840
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>reprezentace konkrétního data</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">specific_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2023</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">specific_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-22 05:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>formátování data</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">specific_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2023</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">formatted_date</span> <span class="o">=</span> <span class="n">specific_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20231022053003
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>parsování data</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2023-10-22&quot;</span>
+<span class="n">parsed_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-22 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>práce s rozdíly (k tomu slouží samostatný objekt <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">future</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">future</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52.563931 2024-03-10 15:51:52.563931
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h2>
+<p>Python poskytuje prostřednitvím modulu <code class="docutils literal notranslate"><span class="pre">logging</span></code> poměrně širokou podporu logování. V modulu existují různé úrovně logování, které určují závažnost logovacích zpráv: <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> a <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>. Nižší úrovně (např. <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>) jsou určeny pro detailní informace, zatímco vyšší úrovně (např. <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>) slouží pro označení vážných problémů, které vyžadují okamžitou pozornost. Obecně je lepší používat pořádný logging než sérii printů - v případě potřeby lze míru logování změnit volbou log level. Základní použití si ukažmě na příkladu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="c1"># filename=&#39;example.log&#39;</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info message&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This message will be ignored&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning&quot;</span><span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This message will not be ignored anymore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,568 - INFO - This is an info message
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,569 - WARNING - This is a warning
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,569 - DEBUG - This message will not be ignored anymore
+</pre></div>
+</div>
+</div>
+</div>
+<p>Modul <code class="docutils literal notranslate"><span class="pre">logging</span></code> standardně vypisuje všechno do <code class="docutils literal notranslate"><span class="pre">stderr</span></code> (proto to Jupyter označuje červeně). <code class="docutils literal notranslate"><span class="pre">stdout</span></code> (standardní výstup) a <code class="docutils literal notranslate"><span class="pre">stderr</span></code> (standardní chybový výstup) jsou dva datové toky, které jsou běžně používány pro interakci mezi programem a jeho vnějším prostředím. Zatímco <code class="docutils literal notranslate"><span class="pre">stdout</span></code> se obvykle používá pro běžný výstup programu, <code class="docutils literal notranslate"><span class="pre">stderr</span></code> se používá pro výpis chybových a diagnostických zpráv.</p>
+<p>Velmi detailní a vtipný rozbor logování v Pythonu naleznete na kanále <a class="reference external" href="https://www.youtube.com/&#64;mCoding">mCoding</a> na YouTube ve videu nazvaném <a class="reference external" href="https://www.youtube.com/watch?v=9L77QExPmI0">Modern Python logging</a>. Následující pasáž a diagram níže je výtažkem nejdůležitějšího z onoho videa.</p>
+<p>Logování je v pythonu rozděleno mezi několik rolí.</p>
+<p><img alt="Architektura logging modulu, diagram od mCoding" src="../../_images/murphy_logging.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>logger</strong> je hlavní objekt, se kterým interagujeme. Na něm voláme metody jako <code class="docutils literal notranslate"><span class="pre">.info</span></code> nebo <code class="docutils literal notranslate"><span class="pre">.warning</span></code>. Tím vznikají <em>log records</em>, které jsou předávány ostatním objektům k dalšímu zpracování.</p></li>
+<li><p><strong>handler</strong> řídí, kam se vlastně <em>log records</em> zapisují. Tím “kam” mohou být soubory, standardní výstup <code class="docutils literal notranslate"><span class="pre">stdout</span></code> nebo např. email. Každý logger může mít libovolné množství handlers (i žádný).</p></li>
+<li><p><strong>filter</strong> slouží k odfiltrování zpráv dle různých kritérií, např. s využitím regulárních výrazů. Filter lze definovat jak pro logger, tak pro handler, přičemž každý může mít více filterů.</p></li>
+<li><p><strong>formatter</strong> určuje výslednou podobu zprávy - zda obsahuje čas, v jakém formátu, kde jsou jaké závorky atd.</p></li>
+</ol>
+<p>Klíčovým prvkem logování je samozřejmě filtrování podle <strong>LEVEL</strong>. Jak handler, tak loggger zpracovávají pouze zprávy vyšší nebo stejné závažnosti, jako je jejich nastavený <strong>LEVEL</strong>.</p>
+<p>Kromě toho Python ve svém logging modulu uspořádává loggery do stromové hierarchie, která může být principiálně velmi komplikovaná. My si z toho zatím vezmeme jedno ponaučení:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Nikdy nebudeme používat <em>root logger</em>, tedy logování prostřednictvím globáních funcí jako <code class="docutils literal notranslate"><span class="pre">logging.info</span></code> apod. Zejména pokud bychom měnili chování root loggeru, mohli bychom se dočkat nepříjemné interakce s logováním ostatních modulů.</p>
+<p>Budeme vždy vytvářet vlastní loggery pomocí metody <code class="docutils literal notranslate"><span class="pre">logging.getLogger(name)</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Logger je implementován jako singleton - to znamená, že pokud logger s názvem <code class="docutils literal notranslate"><span class="pre">name</span></code> neexistuje, funkce <code class="docutils literal notranslate"><span class="pre">getLogger</span></code> jej vytvoří. Pokud existuje, dostaneme referenci k existující instanci.</p>
+</div>
+<section id="detailni-nastaveni">
+<h3>Detailní nastavení<a class="headerlink" href="#detailni-nastaveni" title="Link to this heading">#</a></h3>
+<p>Logging lze podrobně konfigurovat pomocí slovníků. Dokumentace je v tomto ohledu mírně nepřehledná a tajemná. Ukažme si proto dva jednoduché příklady. Více příkladů s detailním výkladem najdete v zmiňovaném video z mCoding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;disable_existing_logger&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;formatters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;simple&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;stdout&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;logging.StreamHandler&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;formatter&quot;</span><span class="p">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="s2">&quot;ext://sys.stdout&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;logging.handlers.RotatingFileHandler&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;formatter&quot;</span><span class="p">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;my_app.log&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;maxBytes&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+            <span class="s2">&quot;backupCount&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;loggers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sample&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;stdout&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;file&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">log_config</span><span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;some warning&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;some debug info&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: some warning
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,580 - WARNING - some warning
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,581 - DEBUG - some debug info
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pokud bychom chtěli logging pouze do <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, musíme nastavit loggin handler. Těch je možné i více najednou. Následující příklad loguje do <code class="docutils literal notranslate"><span class="pre">stdout</span></code> a do souboru zároveň (a ukazuje alternativní cestu, jak nastavit logování).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;my_logger&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="c1"># create a StreamHandler for stdout</span>
+<span class="n">stdout_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stdout_handler</span><span class="p">)</span>
+
+<span class="c1"># Log a message</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This message will go to stdout&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This message will go to stdout
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-03-10 15:06:52,585 - INFO - This message will go to stdout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Kniha je napsaná a kompilovaná pomocí Jupyter Book. Protože logging používá singleton a Jupyter startuje jeden kernel per notebook, je pravděpodobné, že poslední příklad se v knize stále vypíše do <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Aby to prošlo správně, je nutné v mezičase kernel restartovat.</p>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/files_and_packages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reading_from_files.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Načítání ze souboru</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../exceptions/foreword.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Výjimky</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prace-s-cestami">Práce s cestami</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-path">os.path</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pathlib">pathlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutil">shutil</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-os">modul <code class="docutils literal notranslate"><span class="pre">os</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-sys">modul <code class="docutils literal notranslate"><span class="pre">sys</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prebirani-commad-line-argumentu-predanych-skriptu">Přebírání commad-line argumentů předaných skriptu.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ukonceni-programu-s-konkretnim-exit-code">Ukončení programu s konkrétním exit code:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pristup-k-informacim-o-interpretu-ci-systemu">Přístup k informacím o interpretu či systému</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modul-datetime">Modul <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailni-nastaveni">Detailní nastavení</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Václav Alt, Unicorn University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

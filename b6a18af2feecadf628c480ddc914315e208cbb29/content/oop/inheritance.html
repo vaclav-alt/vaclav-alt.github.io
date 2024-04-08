@@ -1,0 +1,1276 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dědičnost &#8212; Základy programování v Pythonu</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/oop/inheritance';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Composition vs. inheritance" href="comp_over_inh.html" />
+    <link rel="prev" title="Objektově orientované programování (OOP)" href="oop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../foreword.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Základy programování v Pythonu - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Základy programování v Pythonu - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../foreword.html">
+                    Základy programování v Pythonu
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Základy programování v Pythonu</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/foreword.html">Úvod</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">O jazyku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cmd.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/instalace.html">Instalace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/first_program.html">První program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/virtualenv.html">Balíčky a virtuální prostředí</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/ides.html">V čem psát Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_first_program.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_kernels.html">Virtual environment jako Jupyter kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/foreword.html">Datové typy, datový model a správa paměti</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_types.html">Datové typy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/format.html">Formátovaný výstup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_model.html">Datový model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/memory_management.html">CPython data model a správa paměti</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iterations_and_flow_control/foreword.html">Řízení běhu programu</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/conditions.html">Podmínky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/iterace.html">Iterace a cykly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/match.html">Match</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/foreword.html">Funkce</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/funkce.html">Funkce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/lambda.html">Lambda funkce a higher order functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/docstring.html">Docstring a type hints</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typing/foreword.html">Typing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typing/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files_and_packages/foreword.html">Čtení ze souboru a užitečné balíčky</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/reading_from_files.html">Načítání ze souboru</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/useful_packages.html">Užitečné balíčky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exceptions/foreword.html">Výjimky</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/general.html">Mechanismus výjimek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/exceptions.html">Výjimky (exceptions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/custom.html">Vlastní výjimky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../decorator/foreword.html">Dekorátor</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator.html">Dekorátor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator_uses.html">Příklady použití</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">OOP</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="oop.html">Objektově orientované programování (OOP)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Dědičnost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comp_over_inh.html">Composition vs. inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_science/foreword.html">Numpy, matplotlib a pandas</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/numpy.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> - numerical python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/matplotlib.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/pandas.html">PANDAS</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/fahrenheit.html">Fahrenheitova stupnice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/uctenka.html">Tisk účtenky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/valid_string.html">Valid string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/pretty_print.html">Pretty print slovniku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/caesarova_sifra.html">Casesarova šifra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/primes.html">Prvočísla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/monte_carlo_pi.html">Monte Carlo - obsah kruhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/polynom.html">Polynom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist.html">TODO list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/week_04.html">Úlohy pro 4. týden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/shopping_cart.html">Nákupní košík</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_file.html">Context manager - SafeFileEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_time.html">Timer jako context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability_sol.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist_sol.html">TODO list - řešení</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literatura</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/oop/inheritance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dědičnost</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-overriding-prekryvani-metod">Method overriding (překrývání metod)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vicenasobna-dedicnost">Vícenásobná dědičnost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraktni-tridy">Abstraktní třídy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porovnavani-typu-v-kontextu-dedicnosti">Porovnávání typů v kontextu dědičnosti</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-interface">Protocol (interface)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixin">Mixin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composition-vs-inheritance">Composition vs. inheritance</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dedicnost">
+<h1>Dědičnost<a class="headerlink" href="#dedicnost" title="Link to this heading">#</a></h1>
+<p>Dědičnost v objektově orientovaném programování umožňuje novým třídám převzít vlastnosti a chování od již existujících tříd. Hlavním účelem dědičnosti je zvýšení znovupoužitelnosti kódu a vytváření vztahů mezi třídami. Díky dědičnosti můžeme vytvářet sofistikovanější a organizovanější systémy bez zbytečné duplikace kódu, což vede k lepší správě a udržitelnosti softwarových projektů.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">job_title</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_title</span> <span class="o">=</span> <span class="n">job_title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary</span>
+        
+    <span class="k">def</span> <span class="nf">payout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;paying </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">GoodEmployee</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">payout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;paying </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10000</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>        
+        
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Václav Alt&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Jindřich Sádlo&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;instalatér&quot;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+<span class="n">good_employee</span> <span class="o">=</span> <span class="n">GoodEmployee</span><span class="p">(</span><span class="s2">&quot;Viktor Hroutil&quot;</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="s2">&quot;lepší instalatér&quot;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+
+<span class="c1"># person.payout()</span>
+<span class="n">employee</span><span class="o">.</span><span class="n">payout</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">employee</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">good_employee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>paying 45000 to Jindřich Sádlo
+Name: Václav Alt, Age: 31
+Name: Jindřich Sádlo, Age: 28
+Name: Viktor Hroutil, Age: 29
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">payout_employess</span><span class="p">(</span><span class="n">employees</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Employee</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">employee</span> <span class="ow">in</span> <span class="n">employees</span><span class="p">:</span>
+        <span class="n">employee</span><span class="o">.</span><span class="n">payout</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">send_annoying_mail</span><span class="p">(</span><span class="n">persons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Person</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">persons</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sending annoying mail to </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="n">send_annoying_mail</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">])</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">payout_employess</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can not payout an ordinary person&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sending annoying mail to Václav Alt
+sending annoying mail to Jindřich Sádlo
+&#39;Person&#39; object has no attribute &#39;payout&#39;
+You can not payout an ordinary person
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">payout_employess</span><span class="p">(</span><span class="n">employees</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Employee</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">employee</span> <span class="ow">in</span> <span class="n">employees</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">employee</span><span class="p">)</span> <span class="o">==</span> <span class="n">Employee</span><span class="p">:</span>
+            <span class="n">employee</span><span class="o">.</span><span class="n">payout</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">send_annoying_mail</span><span class="p">(</span><span class="n">persons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Person</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">persons</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sending annoying mail to </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="n">send_annoying_mail</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">])</span>
+<span class="n">payout_employess</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">,</span> <span class="n">good_employee</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sending annoying mail to Václav Alt
+sending annoying mail to Jindřich Sádlo
+paying 45000 to Jindřich Sádlo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">payout_employess</span><span class="p">(</span><span class="n">employees</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Employee</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">employee</span> <span class="ow">in</span> <span class="n">employees</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">employee</span><span class="p">,</span> <span class="n">Employee</span><span class="p">):</span>
+            <span class="n">employee</span><span class="o">.</span><span class="n">payout</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">send_annoying_mail</span><span class="p">(</span><span class="n">persons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Person</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">persons</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sending annoying mail to </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="n">send_annoying_mail</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">])</span>
+<span class="n">payout_employess</span><span class="p">([</span><span class="n">person</span><span class="p">,</span> <span class="n">employee</span><span class="p">,</span> <span class="n">good_employee</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sending annoying mail to Václav Alt
+sending annoying mail to Jindřich Sádlo
+paying 45000 to Jindřich Sádlo
+paying 55000 to Viktor Hroutil
+</pre></div>
+</div>
+</div>
+</div>
+<section id="method-overriding-prekryvani-metod">
+<h2>Method overriding (překrývání metod)<a class="headerlink" href="#method-overriding-prekryvani-metod" title="Link to this heading">#</a></h2>
+<p>Překrýváním se označuje to, když potomek třídy definuje vlastní implementaci některé metody předka. Může buď původní implementaci volat (např. přes konstrukci <code class="docutils literal notranslate"><span class="pre">super()</span></code>) a vykonat něco navíc, nebo může předchozí implementaci zcela nahradit. Např. v C++ je nutné metody označit klíčovým slovem <code class="docutils literal notranslate"><span class="pre">virtual</span></code>, aby bylo možné je překrýt, v Pythonu takový mechanismus není.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">job_title</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_title</span> <span class="o">=</span> <span class="n">job_title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary</span>
+        
+    <span class="k">def</span> <span class="nf">payout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;paying </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">person_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">person_info</span><span class="si">}</span><span class="s2">, Job Title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_title</span><span class="si">}</span><span class="s2">, Salary: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Václav Alt&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+
+<span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Jindřich Sádlo&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;instalatér&quot;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">employee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: Václav Alt, Age: 31
+Name: Jindřich Sádlo, Age: 28, Job Title: instalatér, Salary: 45000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vicenasobna-dedicnost">
+<h2>Vícenásobná dědičnost<a class="headerlink" href="#vicenasobna-dedicnost" title="Link to this heading">#</a></h2>
+<p>Python dovoluje vícenásobnou dědičnost dvojího druhu:</p>
+<ol class="arabic simple">
+<li><p>do šířky (potomek má více rodičů)</p></li>
+<li><p>do hloubky (potomek může mít potomka)</p></li>
+</ol>
+<p>Potomek podědí metody všech svých předků a může k nim přidat i nějaké vlastní.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BatteryDevice</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">100</span>
+    
+    <span class="k">def</span> <span class="nf">get_status</span><span class="p">():</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span>
+    
+<span class="k">class</span> <span class="nc">TouchscreenDevice</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        
+    <span class="k">def</span> <span class="nf">show_mesage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;message on screen: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+
+<span class="k">class</span> <span class="nc">Smartphone</span><span class="p">(</span><span class="n">BatteryDevice</span><span class="p">,</span> <span class="n">TouchscreenDevice</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="n">BatteryDevice</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity</span><span class="p">)</span>
+        <span class="n">TouchscreenDevice</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span>
+        
+    <span class="k">def</span> <span class="nf">check_battery_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">show_mesage</span><span class="p">(</span><span class="s2">&quot;Warning: battery low&quot;</span><span class="p">)</span>
+    
+<span class="n">phone</span> <span class="o">=</span> <span class="n">Smartphone</span><span class="p">(</span><span class="s2">&quot;Samsung&quot;</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="n">phone</span><span class="o">.</span><span class="n">check_battery_status</span><span class="p">()</span>
+<span class="n">phone</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">phone</span><span class="o">.</span><span class="n">check_battery_status</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>message on screen: Warning: battery low
+</pre></div>
+</div>
+</div>
+</div>
+<p>U více násobné dědičnosti je třeba dávat pozor na případy, kdy více rodičů implementuje tu samou metodu. Která varianta se pak zavolá?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python volá tu metodu, která je první nařadě podle seznamu, kterému říká MRO - Method Resolution Order, který získává pomocí tzv. C3 linearizace, což je algoritmus, který je zcela mimo rozsah tohoto předmětu (zjednodušeně: zleva doprava, zdola nahoru). Důležité je, že na pořádí se můžeme podívat, MRO se spočítá během definice třídy a najdeme ho pod atributem <code class="docutils literal notranslate"><span class="pre">__mro__</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">.</span><span class="vm">__mro__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(__main__.C, __main__.A, __main__.B, object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Celá věc je poněkud matoucí. Následuje série podobných příkladů pouze s drobnými komentáři. Nejsnažší je si v konkrétních případech ověřit, že se třída chová, jak má, než se spoléhat na nějaký odhad.</p>
+<p>Potřeba MRO je trochu patrnější, když přesuneme do konstruktoru. Následující příklad se chová stejně jako předchozí.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ale to znamená, že rodič <code class="docutils literal notranslate"><span class="pre">B</span></code> není inicializovaný, což je nežádoucí. Můžeme zavolat konstruktory explicitně, ale to taky není žádoucí, neboť mimo to zhoršuje udržitelnost kódu (hard-coded názvy) a může narušit Liskov substitution principle (to L v SOLID, o tom jindy).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">B</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is A
+this is B
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trochu lepší varianta je používat konstrukci <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code>. <code class="docutils literal notranslate"><span class="pre">super()</span></code> pracuje s MRO a zajišťuje, aby všechno bylo voláno jak má a aby nic nebylo voláno dvakrát, musíme ale <code class="docutils literal notranslate"><span class="pre">super()</span></code> volat ve všech zúčastněných třídách. (Všimněte si, že volání konstruktorů postupuje proti směru MRO - není moc těžké rozmyslet si proč).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is B
+this is A
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prevence vícenásobného volání se projeví zejména do diamond dědičnosti (někdy diamond of death, příčina zhouby v mnoha inheritance based projektech). Přestože třídy <code class="docutils literal notranslate"><span class="pre">B</span></code> a <code class="docutils literal notranslate"><span class="pre">C</span></code> dědí z <code class="docutils literal notranslate"><span class="pre">A</span></code>, konstruktor <code class="docutils literal notranslate"><span class="pre">A</span></code> se správně zavolá jen jednou.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is C&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is D&quot;</span><span class="p">)</span>
+        
+<span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+<span class="n">D</span><span class="o">.</span><span class="vm">__mro__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is A
+this is C
+this is B
+this is D
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(__main__.D, __main__.B, __main__.C, __main__.A, object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidíme, že při explicitním volání se konstruktor <code class="docutils literal notranslate"><span class="pre">A</span></code> zavolá dvakrát.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is A&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is B&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is C&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">D</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">B</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">C</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is D&quot;</span><span class="p">)</span>
+        
+<span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
+<span class="n">D</span><span class="o">.</span><span class="vm">__mro__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is A
+this is B
+this is A
+this is C
+this is D
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(__main__.D, __main__.B, __main__.C, __main__.A, object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ohledně rozsáhlého využívání dědičnosti se vedou spory. Jsou tábory, které dědičnost zavrhují zcela, tábory které tvrdí, že bez dědičnosti nelze psát software a potom v podstatě všechny možné kombinace.</p>
+<div class="important admonition">
+<p class="admonition-title">Osobní názor</p>
+<p>Osobně se příkláním k postoji, že trocha dědičnosti je dobrá, ale pokud začnete řešit problémy spojené s Method Resolution Order, zašli jste příliš daleko a Váš program je špatně navržený.</p>
+</div>
+</section>
+<section id="abstraktni-tridy">
+<h2>Abstraktní třídy<a class="headerlink" href="#abstraktni-tridy" title="Link to this heading">#</a></h2>
+<p>Smysl abstraktní třídy je definovat jakýsi společný interface pro tématicky spřízněné třídy. K abstraktní třídě není možné stvořit instanci, neboť nic neimplementuje (nebo alespoň ne všechno).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+    
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+    
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+    
+    
+<span class="c1"># shape = Shape() # nelze</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python dovoluje dědění z více abstraktních tříd najednou.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Building</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">can_i_get_in</span><span class="p">():</span>
+        <span class="k">pass</span>
+    
+<span class="k">class</span> <span class="nc">Pentagon</span><span class="p">(</span><span class="n">Shape</span><span class="p">,</span> <span class="n">Building</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">4</span> <span class="c1"># nechtelo se mi to hledat</span>
+    
+    <span class="k">def</span> <span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+    
+    <span class="k">def</span> <span class="nf">can_i_get_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    
+<span class="n">the_pentagon</span> <span class="o">=</span> <span class="n">Pentagon</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">the_pentagon</span><span class="o">.</span><span class="n">can_i_get_in</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="porovnavani-typu-v-kontextu-dedicnosti">
+<h2>Porovnávání typů v kontextu dědičnosti<a class="headerlink" href="#porovnavani-typu-v-kontextu-dedicnosti" title="Link to this heading">#</a></h2>
+<p>Dosud jsme typy porovnávali pomocí zabudované funkce <code class="docutils literal notranslate"><span class="pre">type</span></code>, ale ta může být v kontextu potomků neodstatečná. Ukažme si dvě nové metody:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">isinstance(object,</span> <span class="pre">classinfo)</span></code> ověří, zda <code class="docutils literal notranslate"><span class="pre">object</span></code> je instancí třídy <code class="docutils literal notranslate"><span class="pre">classinfo</span></code> <strong>nebo nějakého jejího potomka</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issubclass(class,</span> <span class="pre">classinfo)</span></code> ověří, zda třída <code class="docutils literal notranslate"><span class="pre">class</span></code> je potomkem třídy <code class="docutils literal notranslate"><span class="pre">classinfo</span></code></p></li>
+</ol>
+<p>Následující příklad ilustruje, co to znamená oproti porovnávání <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">B</span><span class="p">()</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">B</span><span class="p">),</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">B</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True, True, True, False)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="protocol-interface">
+<h2>Protocol (interface)<a class="headerlink" href="#protocol-interface" title="Link to this heading">#</a></h2>
+<p>Některé jazyky (např. Java) zavádějí rozhraní (interface) - jakýsi kontrakt (sadu metod) pro třídy, které jej implementují. Zároveň interface nemusí tuto implementaci poskytovat.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Implement the interface in a class</span>
+<span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Drawing a circle.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jazyk C++ rozhraní nepodporuje a celou věc řeší pomocí abstraktních tříd.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="c1">// Define the interface</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">draw</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Implement the interface in a class</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Drawable</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">draw</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Drawing a circle.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>V Pythonu můžeme použít abstraktní třídy podobně jako C++, ale obvyklejší je použít <code class="docutils literal notranslate"><span class="pre">Protocol</span></code>. Python je dynamicky typovaný, takže můžeme využívat <em>duck typing</em>.</p>
+<blockquote>
+<div><p>“If it looks like a duck and quacks like a duck, it’s a duck”</p>
+</div></blockquote>
+<p>V následujícím příkladu třída <code class="docutils literal notranslate"><span class="pre">Cabbage</span></code> není potomkem třídy <code class="docutils literal notranslate"><span class="pre">Drawable</span></code>, ale pouze implementuje její metody.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span>
+
+<span class="k">class</span> <span class="nc">Drawable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+        
+<span class="k">def</span> <span class="nf">draw_drawables</span><span class="p">(</span><span class="n">drawables</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Drawable</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">drawables</span><span class="p">:</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        
+<span class="k">class</span> <span class="nc">Cabbage</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;drawing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="n">cabbage</span> <span class="o">=</span> <span class="n">Cabbage</span><span class="p">()</span>
+
+<span class="n">draw_drawables</span><span class="p">([</span><span class="n">cabbage</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drawing Cabbage
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vzpomeňte si např. na context manager nebo iterátor. Context manager je cokoliv, co implementuje metody <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> a <code class="docutils literal notranslate"><span class="pre">__exit__</span></code>, a iterátor cokoliv, co implementuje <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> a <code class="docutils literal notranslate"><span class="pre">__next__</span></code>.</p>
+</section>
+<section id="mixin">
+<h2>Mixin<a class="headerlink" href="#mixin" title="Link to this heading">#</a></h2>
+<p>Mixin je příkladem, jak lze elegantně využít vícenásobnou dědičnost. Mixin je třída, která poskytuje metody pro použití v jiných třídách, ale není určena k samostatnému použití.</p>
+<p>Výhody:</p>
+<ul class="simple">
+<li><p>jednoduché</p></li>
+<li><p>separuje zodpovědnost</p></li>
+<li><p>celkem flexibilní</p></li>
+</ul>
+<p>Nevýhody:</p>
+<ul class="simple">
+<li><p>kolize názvů a komplikace spojené s vícenásobnou dědičností (lze vyřešit kompozicí)</p></li>
+<li><p>větší coupling mezi oddělenými třídami</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LoggerMixin</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logging: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+<span class="k">class</span> <span class="nc">Database</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+<span class="k">class</span> <span class="nc">LoggedDatabase</span><span class="p">(</span><span class="n">LoggerMixin</span><span class="p">,</span> <span class="n">Database</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;connecting to database&quot;</span><span class="p">)</span>
+        <span class="n">Database</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;closing database&quot;</span><span class="p">)</span>
+        <span class="n">Database</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+<span class="n">dlb</span> <span class="o">=</span> <span class="n">LoggedDatabase</span><span class="p">()</span>
+<span class="n">dlb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">dlb</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>logging: connecting to database
+logging: closing database
+</pre></div>
+</div>
+</div>
+</div>
+<section id="composition-vs-inheritance">
+<h3>Composition vs. inheritance<a class="headerlink" href="#composition-vs-inheritance" title="Link to this heading">#</a></h3>
+<p>Osobně se mi vícenásobná dědičnost příčí a snažím se jí vyhnout, jak to jen jde. Oblíbený způsob je nahrazovat dědičnost kompozicí. Tedy místo toho, aby třída podědila vlastnosti několika jiných tříd, udržuje si referenci na instance, které potřebuje. Například:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_strategies</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_strategies</span> <span class="o">=</span> <span class="n">log_strategies</span>
+
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_strategies</span><span class="p">:</span>
+            <span class="n">strategy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">LogStrategy</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">ConsoleLogStrategy</span><span class="p">(</span><span class="n">LogStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Console: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">FileLogStrategy</span><span class="p">(</span><span class="n">LogStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+            <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DatabaseLogStrategy</span><span class="p">(</span><span class="n">LogStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="c1"># Code to connect and log message to a database</span>
+        <span class="k">pass</span>
+
+<span class="n">console_logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">([</span><span class="n">ConsoleLogStrategy</span><span class="p">()])</span>
+<span class="n">console_and_file_logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">([</span><span class="n">ConsoleLogStrategy</span><span class="p">(),</span> <span class="n">FileLogStrategy</span><span class="p">(</span><span class="s2">&quot;logfile.txt&quot;</span><span class="p">)])</span>
+
+<span class="n">console_logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;This is a console log message&quot;</span><span class="p">)</span>
+<span class="n">console_and_file_logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;This is a console and file log message&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Console: This is a console log message
+Console: This is a console and file log message
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zvrácená dědičná implementace by mohl vypadat nějak takto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">FileLogger</span><span class="p">(</span><span class="n">Logger</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">ConsoleLogger</span><span class="p">(</span><span class="n">Logger</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">FileAndConsoleLogger</span><span class="p">(</span><span class="n">FileLogger</span><span class="p">,</span> <span class="n">ConsoleLogger</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/oop"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="oop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Objektově orientované programování (OOP)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="comp_over_inh.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Composition vs. inheritance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-overriding-prekryvani-metod">Method overriding (překrývání metod)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vicenasobna-dedicnost">Vícenásobná dědičnost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraktni-tridy">Abstraktní třídy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porovnavani-typu-v-kontextu-dedicnosti">Porovnávání typů v kontextu dědičnosti</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-interface">Protocol (interface)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixin">Mixin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composition-vs-inheritance">Composition vs. inheritance</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Václav Alt, Unicorn University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

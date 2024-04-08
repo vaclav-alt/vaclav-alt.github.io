@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Datové typy &#8212; Základy programování v Pythonu</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/data_model_and_types/data_types';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Formátovaný výstup" href="format.html" />
+    <link rel="prev" title="Datové typy, datový model a správa paměti" href="foreword.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../foreword.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Základy programování v Pythonu - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Základy programování v Pythonu - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../foreword.html">
+                    Základy programování v Pythonu
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Základy programování v Pythonu</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/foreword.html">Úvod</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">O jazyku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cmd.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/instalace.html">Instalace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/first_program.html">První program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/virtualenv.html">Balíčky a virtuální prostředí</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/ides.html">V čem psát Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_first_program.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_kernels.html">Virtual environment jako Jupyter kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">Datové typy, datový model a správa paměti</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Datové typy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format.html">Formátovaný výstup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_model.html">Datový model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_management.html">CPython data model a správa paměti</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iterations_and_flow_control/foreword.html">Řízení běhu programu</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/conditions.html">Podmínky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/iterace.html">Iterace a cykly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/match.html">Match</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/foreword.html">Funkce</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/funkce.html">Funkce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/lambda.html">Lambda funkce a higher order functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/docstring.html">Docstring a type hints</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typing/foreword.html">Typing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typing/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files_and_packages/foreword.html">Čtení ze souboru a užitečné balíčky</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/reading_from_files.html">Načítání ze souboru</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/useful_packages.html">Užitečné balíčky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exceptions/foreword.html">Výjimky</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/general.html">Mechanismus výjimek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/exceptions.html">Výjimky (exceptions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/custom.html">Vlastní výjimky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../decorator/foreword.html">Dekorátor</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator.html">Dekorátor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator_uses.html">Příklady použití</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../oop/foreword.html">OOP</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oop/oop.html">Objektově orientované programování (OOP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/inheritance.html">Dědičnost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/comp_over_inh.html">Composition vs. inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_science/foreword.html">Numpy, matplotlib a pandas</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/numpy.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> - numerical python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/matplotlib.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/pandas.html">PANDAS</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/fahrenheit.html">Fahrenheitova stupnice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/uctenka.html">Tisk účtenky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/valid_string.html">Valid string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/pretty_print.html">Pretty print slovniku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/caesarova_sifra.html">Casesarova šifra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/primes.html">Prvočísla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/monte_carlo_pi.html">Monte Carlo - obsah kruhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/polynom.html">Polynom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist.html">TODO list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/week_04.html">Úlohy pro 4. týden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/shopping_cart.html">Nákupní košík</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_file.html">Context manager - SafeFileEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_time.html">Timer jako context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability_sol.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist_sol.html">TODO list - řešení</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literatura</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/data_model_and_types/data_types.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Datové typy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicitni-a-explicitni-konverze">Implicitní a explicitní konverze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciselne-typy-a-reprezentace-cisel-v-pocitaci">Číselné typy a reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">Floating point numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bool">Bool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kolekce">Kolekce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string">String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonetype">NoneType</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="datove-typy">
+<h1>Datové typy<a class="headerlink" href="#datove-typy" title="Link to this heading">#</a></h1>
+<p>V této části si popíšeme, co se v jazyce Python vlastně ukrývá za proměnnými, jak rozpoznává datové typy a jakým způsobem nakládá s pamětí.</p>
+<p><img alt="Python data structure" src="https://media.geeksforgeeks.org/wp-content/uploads/20191023173512/Python-data-structure.jpg" />
+<em>Obrázek z webu GeeksForGeeks: <a class="reference external" href="https://www.geeksforgeeks.org/python-data-types/">https://www.geeksforgeeks.org/python-data-types/</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># tiskne value, type a id</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1025</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1024 &lt;class &#39;int&#39;&gt; 140658298541904
+1025 &lt;class &#39;int&#39;&gt; 140658298540880
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">765.12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>765.12 &lt;class &#39;float&#39;&gt; 140658299004272
+</pre></div>
+</div>
+</div>
+</div>
+<p>Všechny tyto vlastnosti můžeme i porovnávat. Operátor <code class="docutils literal notranslate"><span class="pre">==</span></code> porovnává hodnot, zatímco operátor <code class="docutils literal notranslate"><span class="pre">is</span></code>porovnává právě <code class="docutils literal notranslate"><span class="pre">id</span></code>. Rozlišujeme tím tak objekty s totožnou hodnotou a objekty identické.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True True
+</pre></div>
+</div>
+</div>
+</div>
+<section id="implicitni-a-explicitni-konverze">
+<h2>Implicitní a explicitní konverze<a class="headerlink" href="#implicitni-a-explicitni-konverze" title="Link to this heading">#</a></h2>
+<p>Mezi jednotlivými datovými typy může docházet ke konverzi. Pokud konverzi provede sám Python, protože je např. nutná k dokončení operace, hovoříme o <strong>implicitní konverzi</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pokud konverzi vynutím e sami, pak se jedná o <strong>explicitní koverzi</strong>. Konverzi na daný typ explicitně vynucujeme voláním konstruktoru finálního typu, tj. funkcí se stejným názvem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;1&#39;, 1.0, 1, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je nutno dávat pozor, zda konverze skutečně vede k výsledku, který očekáváme - vždycky lepší vyzkoušet. Moje oblíbená chyba:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bool_flag</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bool_flag</span><span class="p">)</span>
+<span class="n">bool_flag</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bool_flag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Interpret si nemusí vždycky myslet to samé co vy.</p>
+</div>
+</section>
+<section id="ciselne-typy-a-reprezentace-cisel-v-pocitaci">
+<h2>Číselné typy a reprezentace čísel v počítači<a class="headerlink" href="#ciselne-typy-a-reprezentace-cisel-v-pocitaci" title="Link to this heading">#</a></h2>
+<p>Python nabízí tři základní číselné datové typy:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> - integer reprezentující celá čísla,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - čísla s plovoucí desetinnou čárkou,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex</span></code> - reprezentující komplexní čísla (fakticky dvakrát <code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></li>
+</ul>
+<p>Konceptuálně prosté, ale je dobré se podívat na pár vlastností souvisejících s reprezentací čísel v počítači. I v tomto má Python jistá specifika.</p>
+<section id="cela-cisla">
+<h3>Celá čísla<a class="headerlink" href="#cela-cisla" title="Link to this heading">#</a></h3>
+<p>Celá čísla jsou v počítači reprezentována prostě - jedná se o přímočarý zápis ve dvojkové soustavě. Standardní int má běžně 32 bitů (4 byty), z nichž první je rezervován pro indikaci znaménka. Ukažme si, jak to funguje na typu char (to samé, jen s jedním bytem).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Kolik je 127+1? Správně, -128. Proč? Záporná čísla, tj. čísla s 1 v první bitu, se interpretují pomocí dodatečné operace <code class="docutils literal notranslate"><span class="pre">bitwise</span> <span class="pre">NOT</span></code>+1. Tedy prohodíme 0 a 1 a k výsledku přičteme číslo jedna. Ukažme si pár čísel v rozsahu jednoho byte a pochopíme.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>base 10</p></th>
+<th class="head"><p>base 2</p></th>
+<th class="head"><p>NOT</p></th>
+<th class="head"><p>two’s complement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>00000001</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>00001010</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>00010000</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>127</p></td>
+<td><p>01111111</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>-127</p></td>
+<td><p>10000001</p></td>
+<td><p>01111110</p></td>
+<td><p>01111111</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>11111111</p></td>
+<td><p>00000000</p></td>
+<td><p>00000001</p></td>
+</tr>
+<tr class="row-even"><td><p>-2</p></td>
+<td><p>11111110</p></td>
+<td><p>00000001</p></td>
+<td><p>00000010</p></td>
+</tr>
+<tr class="row-odd"><td><p>-6</p></td>
+<td><p>11111010</p></td>
+<td><p>00000101</p></td>
+<td><p>00000110</p></td>
+</tr>
+</tbody>
+</table>
+<p>Odsud už je vidět proč 127+1=-128:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">127</span><span class="o">=</span><span class="mi">011111111</span>
+<span class="mi">127</span><span class="o">+</span><span class="mi">1</span><span class="o">=</span><span class="mi">10000000</span>
+<span class="n">NOT</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span><span class="o">=</span><span class="mi">01111111</span>
+<span class="n">NOT</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="o">=</span><span class="mi">10000000</span>
+<span class="mi">10000000</span><span class="o">=</span><span class="mi">128</span>
+<span class="o">-&gt;</span> <span class="o">-</span><span class="mi">128</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Jedná se o způsob reprezentace zvaný Two’s complement. Detaily naleznete třeba na Wiki <span id="id1"><em>Two's complement</em> [<a class="reference internal" href="../literature.html#id4" title="Two's complement. https://en.wikipedia.org/wiki/Two's_complement. Accessed: 2024-02-18.">1</a>]</span></p>
+</div>
+<p>Pro 32 bitový signed int obdobně zjistíte, že 2147483647+1=-2147483648. Chybám tohoto druhu se říká Overflow Error a mohou být velmi zrádné. Stály za řadou různě závažných nehod, uveďme si dvě</p>
+<ol class="arabic simple">
+<li><p>ESA Ariane flight V88 - přetekla hodnota <code class="docutils literal notranslate"><span class="pre">horizontal</span> <span class="pre">bias</span></code> ukládáná do 16-bit signed integer proměnné. Následná neošetřená hardware exception zablokovala část řízení a raketa se výrazně odchýlila od planované trasy. Let ukončil autodestrukční systém (<span id="id2"><em>Ariane flight V88</em> [<a class="reference internal" href="../literature.html#id5" title="Ariane flight v88. https://en.wikipedia.org/wiki/Ariane_flight_V88. Accessed: 2024-02-19.">2</a>]</span>).</p></li>
+<li><p>V roce 2012 vydala korejská hudební skupina Psy svůj velkolepý hit Gangnam Style. A již v roce 2013 překročil počet shlédnutí na YouTube <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">147</span> <span class="pre">483</span> <span class="pre">647</span></code>, čímž se dostal do záporných hodnot. Google tenkrát přešel od 32-bit signed integer pro reprezentaci počtu shlédnutí k 64-bit signed integer. Doposud se Psy počet <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">223</span> <span class="pre">372</span> <span class="pre">036</span> <span class="pre">854</span> <span class="pre">775</span> <span class="pre">807</span></code> shlédnutí překonat nepodařilo. (<span id="id3"><em>How Gangnam Style broke YouTube</em> [<a class="reference internal" href="../literature.html#id7" title="How gangnam style broke youtube. https://youtu.be/vA0Rl6Ne5C8. Accessed: 2024-02-19.">3</a>]</span>)</p></li>
+</ol>
+<p>Proč o tom hovoříme? Protože Python je implementovaný v C, tak bychom mohli u typu int očekávam nějakou podobnou záludnost.</p>
+<p>Ve skutečnosti Python používá C typ long, což je 8 bytová reprezentace celého čísla. Pokud připustíme unsigned variantu (tedy pouze kladná čísla, i první bit se použije), je maximální hodnota 2^64 - 1 = 18 446 744 073 709 551 615. Z toho, co jsme viděli víme, že navýšíme-li toto číslo o 1, dostaneme 0. Zkusme to v pythonu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">18_446_744_073_709_551_615</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18446744073709551615
+18446744073709551616
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dostali jsme správný výsledek. Už samotný int objekt je poměrně složitý a dokáže pracovat se složitější reprezentací celých čísel a v případě potřeby alokuje více paměti. Int v pythonu je neomezený.</p>
+</section>
+<section id="floating-point-numbers">
+<h3>Floating point numbers<a class="headerlink" href="#floating-point-numbers" title="Link to this heading">#</a></h3>
+<p>Následující (ne)rovnost naplňuje řadu lidí bázní, mnohým se hroutí svět a jiní v návalu paniky začínají obviňovat konkrétní programovací jazyky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>My budeme chytřejší a seznámíme se s tím, proč si <strong>i Váš</strong> počítač myslí, že</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>Následující kód definuje několik pomocných funkcí, které zobrazují binární reprezentaci floating point čísel v počítači. Jejich implementace nás nemusí zajímat, věnujme se těm číslům. Z porovnání je zřejmé, že výsledky skutečně nejsou totožné.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+<span class="k">def</span> <span class="nf">binary</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:0&gt;8b}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;!d&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">print_by_sections</span><span class="p">(</span><span class="n">num</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">],</span> <span class="n">num</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="mi">16</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">8</span><span class="p">:</span><span class="mi">16</span><span class="o">+</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">show_repr</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">print_by_sections</span><span class="p">(</span><span class="n">binary</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+<span class="n">show_repr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">show_repr</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">show_repr</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">show_repr</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">show_repr</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 01111111011 1001 10011001 10011001 10011001 10011001 10011001 10011010 
+0 01111111100 1001 10011001 10011001 10011001 10011001 10011001 10011010 
+0 01111111101 0011 00110011 00110011 00110011 00110011 00110011 00110100 
+0 01111111101 0011 00110011 00110011 00110011 00110011 00110011 00110011 
+0 01111001001 0000 00000000 00000000 00000000 00000000 00000000 00000000 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reprezentace necelých čísel v počítači je výrazně složitější. Python používá variantu definovanou standardem IEE 754, která je vlastně binární obdobou toho, čemu říkáme scientific notation. Podle počtu použitých bitů rozlišujeme single (32 bitů) a double (64 bitů) precision floating point number.</p>
+<p><img alt="Wiki" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Float_example.svg/590px-Float_example.svg.png" />
+<img alt="Wiki" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/IEEE_754_Double_Floating_Point_Format.svg/618px-IEEE_754_Double_Floating_Point_Format.svg.png" /></p>
+<p>Výhodou této reprezentace je, že umožňuje uchovávat čísla v obrovském rozsahu hodnot: zhruba <span class="math notranslate nohighlight">\(10^{-38}\)</span> až <span class="math notranslate nohighlight">\(10^{38}\)</span> pro single precision, <span class="math notranslate nohighlight">\(10^{-308}\)</span> až <span class="math notranslate nohighlight">\(10^{308}\)</span> pro double precision. Python pro svůj typ <code class="docutils literal notranslate"><span class="pre">float</span></code> ve skutečnosti používá double precision.</p>
+<p>Protože v double precision má mantisa (significand, tj. to, co není exponent) 52 bitů, dochází k ořezu. Obecně v single precision můžeme očekávat 7-8 platných číslic v desítkové soustave, v double precision 15-16. Některá čísla proste budou reprezentována s chybou. Tyto chyby se při operacích můžou kumulovat a je tak možné zdánlivě nevinným výpočtem dojít k úplně špatnému výsledku. Tomu, jak se takovým problémům vyhnout, se věnuje numerická matematika.</p>
+<p>My si z toho vezmeme prozatím jednoduché ponaučení - nikdy nebudeme porovnávat <code class="docutils literal notranslate"><span class="pre">float</span></code> přímo, ale budeme se dívat, jestli jsou dostatečně blízko. Tedy něco jako</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this will not work&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this should work for small numbers&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this should work for large numbers&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this should be always safe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this should work for small numbers
+this should work for large numbers
+this should be always safe
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>POČÍTAČ NEUMÍ POČÍTAT!</strong> Ale dělá to velmi rychle. Počítejme s tím.</p>
+</div>
+</section>
+</section>
+<section id="bool">
+<h2>Bool<a class="headerlink" href="#bool" title="Link to this heading">#</a></h2>
+<p>Na rozdíl od řady programovacích jazyků je v Pythonu samostatný logický typ bool. Může nabývat dvou různých hodnot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+<span class="kc">False</span>
+</pre></div>
+</div>
+<p>Hodnoty typu bool jsou typicky výstupem z vyhodnocení logických výrazů, jako je např. porovnávání.</p>
+</section>
+<section id="kolekce">
+<h2>Kolekce<a class="headerlink" href="#kolekce" title="Link to this heading">#</a></h2>
+<p>Kontejnery (někdy kolekce) jsou takové datové typy, které mohou obsahovat další prvky. Možným kritériem pro jejich další dělení je uspořádání.</p>
+<ul class="simple">
+<li><p>Sekvence (řazené) – prvky mají definované pořadí, přistupujeme k nim pomocí indexů v hranaté závorce. Patří sem např. <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code> nebo <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p></li>
+<li><p>Neřazené – prvky nemají žádné konkrétní pořadí, indexování tady nemá smysl. Patří sem např. <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
+</ul>
+<p>Jiným příkladem kontejneru je <code class="docutils literal notranslate"><span class="pre">dict</span></code>, neboli dictionary, slovník – mapovací typ. Od verze Python 3.6 má definované pořadí, ale indexování jako sekvence nepodporuje.</p>
+<section id="list">
+<h3>List<a class="headerlink" href="#list" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> (seznam) je druh mutable (měnitelné) sekvence, která se typicky používá jako obdoba dynamických polí.</p>
+<p>Listy mohou obsahovat prvky různých typů. Zapisují se hranatou závorkou. Pomocí zabudovaných metod, jako <code class="docutils literal notranslate"><span class="pre">.append()</span></code>, nebo .<code class="docutils literal notranslate"><span class="pre">remove()</span></code> můžeme obsah listu měnit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.71</span><span class="p">,</span> <span class="s2">&quot;jogurt&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;jogurt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span>
+<span class="go">[2, 2.71, True, False]</span>
+</pre></div>
+</div>
+</section>
+<section id="tuple">
+<h3>Tuple<a class="headerlink" href="#tuple" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> (n-tice) je immutable (neměnitelná) sekvence, která se typicky používá jako obdoba statických polí.</p>
+<p>Tuples mohou obsahovat prvky různých typů. Zapisují se kulatou závorkou. Obsah tuple můžeme číst, ale nemůžeme měnit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.71</span><span class="p">,</span> <span class="s2">&quot;jogurt&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">jogurt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># -&gt; TypeError</span>
+</pre></div>
+</div>
+</section>
+<section id="dictionary">
+<h3>Dictionary<a class="headerlink" href="#dictionary" title="Link to this heading">#</a></h3>
+<p>Dictionary (slovník) je mutable (měnitelný) mapping, tedy typ, který obsahuje dvojice <code class="docutils literal notranslate"><span class="pre">key</span></code> a <code class="docutils literal notranslate"><span class="pre">value</span></code> (klíč a hodnota).</p>
+<p>Slovníky mohou obsahovat prvky různých typů a mnoho typů lze i použít jako klíč. Zapisují se složenou závorkou, klíč a hodnotu odděluje dvojtečka. K hodnotám ve slovíku přistupujeme pomocí odpovídajících klíčů.</p>
+</section>
+</section>
+<section id="string">
+<h2>String<a class="headerlink" href="#string" title="Link to this heading">#</a></h2>
+<p>String <code class="docutils literal notranslate"><span class="pre">str</span></code> (řetězec) je neměnitelná (immutable) sekvence znaků. Jakožto sekvence podporuje standardní indexování včetně sliců. Přestože je kolekcí, zaslouží se vlastní sekci.</p>
+<p>Zapisuje se pomocí jednoduchých i dvojitých uvozovek.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span> <span class="o">=</span> <span class="s1">&#39;jogurt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;u&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span> <span class="o">+</span> <span class="s1">&#39;y&#39;</span>
+<span class="go">&#39;jogurty&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;J&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span>
+<span class="go">&quot;Jogurty&quot;</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span> <span class="o">=</span> <span class="s2">&quot;Příliš žluťoučký kůň úpěl ďábelské ódy&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="go">&#39;žluťoučký&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;ydó ékslebáď lěpú ňůk ýkčuoťulž šilířP&#39;</span>
+</pre></div>
+</div>
+<p>Velikou výhodou typu string v Pythonu je, že v sobě má zabudované nepřeberné množství nejrůznějších operací.</p>
+<p>Všechny najdete v dokumentaci. Namátkou jich pár vyberme:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span> <span class="o">=</span> <span class="s2">&quot;Příliš žluťoučký kůň úpěl ďábelské ódy&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">[&#39;Příliš&#39;, &#39;žluťoučký&#39;, &#39;kůň&#39;, &#39;úpěl&#39;, &#39;ďábelské&#39;, &#39;ódy&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;HELLO_WORLD&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;###hello###&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="go">&#39;hello&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="nonetype">
+<h2>NoneType<a class="headerlink" href="#nonetype" title="Link to this heading">#</a></h2>
+<p>Významným datovým typem je <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, který slouží k reprezentaci “ničeho”, tedy nedefinované, nepřiřazené nebo neexistující hodnoty, anglicky null value.</p>
+<p>Jeho hodnotou je <code class="docutils literal notranslate"><span class="pre">None</span></code>, funkce <code class="docutils literal notranslate"><span class="pre">type</span></code> navrací <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> a na typ <code class="docutils literal notranslate"><span class="pre">bool</span></code> se vždy konvertuje jako <code class="docutils literal notranslate"><span class="pre">False</span></code>. Bežně se s ním setkáme např. jako s <em>návratovou hodnotou funkcí, které nic nevrací</em>.</p>
+<p>Zda je proměnná typu NoneType, porovnáváme pomocí operátoru <code class="docutils literal notranslate"><span class="pre">is</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="c1"># this function does not return anything</span>
+    <span class="k">pass</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;there is nothing in var a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there is nothing in var a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Operátor <code class="docutils literal notranslate"><span class="pre">is</span></code> lze použít, neboť <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> je implementován jako <em>singleton</em>, takže všechny instance <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> jsou identické objekty. Vzpomeňte si na kurzy návrhových vzorů, které Vás možná teprve čekají.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/data_model_and_types"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="foreword.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Datové typy, datový model a správa paměti</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="format.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Formátovaný výstup</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicitni-a-explicitni-konverze">Implicitní a explicitní konverze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciselne-typy-a-reprezentace-cisel-v-pocitaci">Číselné typy a reprezentace čísel v počítači</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cela-cisla">Celá čísla</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floating-point-numbers">Floating point numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bool">Bool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kolekce">Kolekce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string">String</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonetype">NoneType</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Václav Alt, Unicorn University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

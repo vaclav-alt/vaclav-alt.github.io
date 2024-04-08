@@ -1,0 +1,1 @@
+# Mechanismus výjimek

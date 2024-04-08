@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="flex.css">
+		<title>Václav Alt</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top">
+				<h1>Václav Alt</h1>
+			</div>
+			<div class="middle">
+			<div class="header">
+				<div>
+					<img src="img/foto2.jpg" class="photo" title="vaclav" width="120px"><br>
+				</div>
+				<div class="quote">
+					<i>"I have approximate knowledge of many things."</i><br>
+					<span style="margin-left: 10em;">- Demon Cat, Adventure Time</span>
+				</div>
+			</div>
+
+			<div class="segment teaching">
+				<hr>
+				<h2>Výuka - Unicorn University</h2>
+				Příhlašte se heslem, které jste dostali na hodině.
+				<div id="loginbox" class="lightbox" >
+					<input style="margin: 16px; text-align: center;" id="password" type="password" placeholder="password" /> <br />
+					<button id="loginbutton" type="button">Vstoupit</button>
+				</div>
+
+					<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+					<script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
+					<script type="text/javascript" src="hash.js"></script>
+			</div>
+
+			<div class="segment jobs">
+				<hr>
+				<h2>Zaměstnání a projekty</h2>
+				<ul>
+					<li>2019-současnost - fyzik, data scientist a odborný konzultant</li>
+					<li>2017-2019 - Data scientist, programátor a fyzik v Eyen SE: rekonstrukce a analýza struktury proteinů ze snímků z cryo-elektronové mikroskopie</li>
+					<li>2016-2018 - Grantový projekt financovaný GAUK UK: <i>Resonant collisions of electrons with diatomic molecules</i></li>
+				</ul>
+
+				<h2>Publikace</h2>
+				<ul>
+					<li>Alt, V. and Houfek, K.. <b>Resonant collisions of electrons with O<sub>2</sub> via the lowest-lying <sup>2</sup>Π<sub>g</sub> state of O<sub>2</sub><sup>-</sup>.</b> Physical Review A, 2021, vol. 103, no. 3, p. 032829
+						<br>DOI <a href="https://link.aps.org/doi/10.1103/PhysRevA.103.032829">10.1103/PhysRevA.103.032829</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="segment education">
+				<hr>
+				<h2>Vzdělání</h2>
+				<ul>
+					<li>2016-současnost Doktoské studium na Matematicko-fyzikální fakultě Univerzity Karlovy, obor Teoretická fyzika, astronomie a astrofyzika</li>
+					<ul>
+						<li>research topic: <i>Dynamics of negative molecular ions</i></li>
+					</ul>
+					<li>2014-2016 Magisterské studium na Matematicko-fyzikální fakultě Univerzity Karlovy, obor Teoretická fyzika</li>
+					<ul>
+						<li>diplomová práce: <i>Resonant collision of electrons with diatomic collisions</i></li>
+					</ul>
+					<li>2010-2014 Bakalářské studium na Matematicko-fyzikální fakultě Univerzity Karlovy, obor Obecná fyzika</li>
+					<li>2002-2010 Gymnázium Jiřího Ortena v Kutné Hoře</li>
+				</ul>
+			</div>
+			</div>
+			<div class="bottom">
+				&#9400; Václav Alt, 2020
+			</div>
+		</div>
+	</body>
+</html>
