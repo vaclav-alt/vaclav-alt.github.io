@@ -15,20 +15,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
+from bs4 import BeautifulSoup
 
-s = pd.Series(range(5), index=["a", "b", "c", "d", "e"])
-print(s)
+with open("data/sample.html") as fp:
+    # soup = BeautifulSoup(fp, 'html.parser') # zabudovan7 pythoni parser
+    soup = BeautifulSoup(fp, 'lxml') # zabudovan7 pythoni parser
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_445482/2125069589.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;34m[0m[0m
-[1;32m      3[0m [0ms[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mSeries[0m[0;34m([0m[0mrange[0m[0;34m([0m[0;36m5[0m[0;34m)[0m[0;34m,[0m [0mindex[0m[0;34m=[0m[0;34m[[0m[0;34m"a"[0m[0;34m,[0m [0;34m"b"[0m[0;34m,[0m [0;34m"c"[0m[0;34m,[0m [0;34m"d"[0m[0;34m,[0m [0;34m"e"[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mprint[0m[0;34m([0m[0ms[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1080348/1232595439.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mfrom[0m [0mbs4[0m [0;32mimport[0m [0mBeautifulSoup[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0;34m"data/sample.html"[0m[0;34m)[0m [0;32mas[0m [0mfp[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;31m# soup = BeautifulSoup(fp, 'html.parser') # zabudovan7 pythoni parser[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0msoup[0m [0;34m=[0m [0mBeautifulSoup[0m[0;34m([0m[0mfp[0m[0;34m,[0m [0;34m'lxml'[0m[0;34m)[0m [0;31m# zabudovan7 pythoni parser[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'data/sample.html'
 

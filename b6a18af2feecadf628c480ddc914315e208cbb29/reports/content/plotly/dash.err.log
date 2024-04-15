@@ -1,0 +1,66 @@
+Traceback (most recent call last):
+  File "/home/vaclav/.local/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/vaclav/.local/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from jupyter_dash import JupyterDash
+from dash import dcc # dash core components
+from dash import html
+from dash.dependencies import Input, Output
+
+app = JupyterDash(__name__)
+
+pozdrav = {
+    "de" : "Hallo",
+    "en" : "Oi, oi",
+    "cz" : "Nazdar",
+    "jp" : "こんにちは"
+}
+
+app.layout = html.Div([
+    html.H1("Hallo", id = "header"),
+    dcc.RadioItems(
+        id = "jazyk",
+        options = [
+            {"value" : "de", "label" : "Deutsch"},
+            {"value" : "en", "label" : "English"},
+            {"value" : "cz", "label" : "Česky"},
+            {"value" : "jp", "label" : "日本語"}
+        ],
+        value = "jp"),
+    html.Hr()
+])
+
+@app.callback(
+    Output("header", "children"),
+    Input("jazyk", "value"))
+def update_hello(val):
+    return pozdrav[val]
+
+app.run_server(mode="inline")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1080399/3609927044.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0;32mfrom[0m [0mjupyter_dash[0m [0;32mimport[0m [0mJupyterDash[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0;32mfrom[0m [0mdash[0m [0;32mimport[0m [0mdcc[0m [0;31m# dash core components[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mfrom[0m [0mdash[0m [0;32mimport[0m [0mhtml[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mfrom[0m [0mdash[0m[0;34m.[0m[0mdependencies[0m [0;32mimport[0m [0mInput[0m[0;34m,[0m [0mOutput[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'jupyter_dash'
+

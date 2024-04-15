@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Docstring a type hints &#8212; Základy programování v Pythonu</title>
+    <title>Interface &#8212; Základy programování v Pythonu</title>
   
   
   
@@ -58,11 +58,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/functions/docstring';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/ui/interface';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Typing" href="../typing/foreword.html" />
-    <link rel="prev" title="Lambda funkce a higher order functions" href="lambda.html" />
+    <link rel="next" title="Sample aplikace pro interface" href="sample_app.html" />
+    <link rel="prev" title="Interfaces" href="foreword.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,11 +203,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/match.html">Match</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">Funkce</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="funkce.html">Funkce</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scope.html">Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lambda.html">Lambda funkce a higher order functions</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Docstring a type hints</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/foreword.html">Funkce</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/funkce.html">Funkce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/lambda.html">Lambda funkce a higher order functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../typing/foreword.html">Typing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -240,9 +239,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../data_science/numpy.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> - numerical python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_science/matplotlib.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_science/pandas.html">PANDAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/api.html">HTTP API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_science/web_scraping.html">Web scraping</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev/foreword.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/custom_module.html">Struktura programu, vlastní moduly a balíčky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/docstring.html">Dokumentace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/testing.html">Unit testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">Interfaces</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_app.html">Sample aplikace pro interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../plotly/foreword.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly/plotly.html">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly/dash.html">Dash</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/fahrenheit.html">Fahrenheitova stupnice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/uctenka.html">Tisk účtenky</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/valid_string.html">Valid string</a></li>
@@ -259,7 +278,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_time.html">Timer jako context manager</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/stability_sol.html">Stabilita algoritmu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tasks/todolist_sol.html">TODO list - řešení</a></li>
 </ul>
@@ -319,7 +338,7 @@
       
       
       
-      <li><a href="../../_sources/content/functions/docstring.ipynb" target="_blank"
+      <li><a href="../../_sources/content/ui/interface.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -401,11 +422,54 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Docstring a type hints</h1>
+    <h1>Interface</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-command-line-interface">CLI - command line interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-argparse">Balíček <code class="docutils literal notranslate"><span class="pre">argparse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-cmd">Balíček <code class="docutils literal notranslate"><span class="pre">cmd</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klicove-vlastnosti">Klíčové vlastnosti</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vyuziti">Využití</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#omezeni">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-curses">Balíček <code class="docutils literal notranslate"><span class="pre">curses</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Klíčové vlastnosti</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Využití</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Omezení</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-graphical-user-interface">GUI - graphical user interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tkinter">tkinter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ttk-bootstrap">ttk bootstrap</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qt">Qt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klady">Klady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zapory">Zápory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqt">PyQt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Klady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Zápory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#honorable-mentions">Honorable mentions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -415,98 +479,158 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="docstring-a-type-hints">
-<h1>Docstring a type hints<a class="headerlink" href="#docstring-a-type-hints" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;dlouhe</span>
-<span class="s2">    stringy</span>
-
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dlouhe
-    stringy
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">polynom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">coefs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function evaluates a polynomial with coeficients coef.&quot;&quot;&quot;</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coefs</span><span class="p">):</span>
-        <span class="n">val</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span>
-    <span class="k">return</span> <span class="n">val</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    reST style docstring</span>
-
-<span class="sd">    :param a: this is the first number</span>
-<span class="sd">    :param b: this is the second number</span>
-<span class="sd">    :returns: the sum of the two numbers</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Google style docstring</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        a: this is the first number</span>
-<span class="sd">        b: this is the second number</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        the sum of the two numbers</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-
-<span class="n">help</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function g in module __main__:
-
-g(a, b)
-    Google style docstring
-    
-    Args:
-        a: this is the first number
-        b: this is the second number
-    
-    Returns:
-        the sum of the two numbers
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
-<span class="n">add</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AB&#39;
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="interface">
+<h1>Interface<a class="headerlink" href="#interface" title="Link to this heading">#</a></h1>
+<section id="cli-command-line-interface">
+<h2>CLI - command line interface<a class="headerlink" href="#cli-command-line-interface" title="Link to this heading">#</a></h2>
+<section id="balicek-argparse">
+<h3>Balíček <code class="docutils literal notranslate"><span class="pre">argparse</span></code><a class="headerlink" href="#balicek-argparse" title="Link to this heading">#</a></h3>
+<p>viz příklad</p>
+</section>
+<section id="balicek-cmd">
+<h3>Balíček <code class="docutils literal notranslate"><span class="pre">cmd</span></code><a class="headerlink" href="#balicek-cmd" title="Link to this heading">#</a></h3>
+<p>Balíček <code class="docutils literal notranslate"><span class="pre">cmd</span></code> v Pythonu je určen pro tvorbu jednoduchých interaktivních příkazových řádkových aplikací (CLI).</p>
+<section id="klicove-vlastnosti">
+<h4>Klíčové vlastnosti<a class="headerlink" href="#klicove-vlastnosti" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Snadná Tvorba CLI:</strong> Umožňuje rychlé vytvoření interaktivních příkazových řádkových aplikací.</p></li>
+<li><p><strong>Podpora Příkazů:</strong> Uživatelé mohou definovat vlastní příkazy a jejich chování.</p></li>
+<li><p><strong>Interaktivní Shell:</strong> Poskytuje interaktivní shell, kde uživatelé mohou zadávat příkazy.</p></li>
+<li><p><strong>Pomoc a Dokumentace:</strong> Automaticky generuje pomoc pro uživatele založenou na dostupných příkazech a jejich dokumentaci.</p></li>
+<li><p><strong>Rozšiřitelnost:</strong> Lze snadno rozšířit a přizpůsobit pro specifické požadavky aplikace.</p></li>
+</ul>
+</section>
+<section id="vyuziti">
+<h4>Využití<a class="headerlink" href="#vyuziti" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Vývoj CLI Nástrojů:</strong> Ideální pro vytváření přizpůsobených nástrojů příkazového řádku pro různé účely.</p></li>
+<li><p><strong>Testování a Prototypování:</strong> Umožňuje rychlé prototypování a testování CLI interakcí.</p></li>
+</ul>
+</section>
+<section id="omezeni">
+<h4>Omezení<a class="headerlink" href="#omezeni" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Jednoduchost:</strong> Přestože je to výhoda pro rychlý vývoj, může být omezení pro složitější aplikace.</p></li>
+<li><p><strong>Grafické Rozhraní:</strong> Neumožňuje vytvářet grafické uživatelské rozhraní, je zaměřeno pouze na příkazový řádek.</p></li>
+</ul>
+</section>
+</section>
+<section id="balicek-curses">
+<h3>Balíček <code class="docutils literal notranslate"><span class="pre">curses</span></code><a class="headerlink" href="#balicek-curses" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">curses</span></code> je programovací knihovna pro vytváření textově orientovaných uživatelských rozhraní v terminálových aplikacích. Je to obzvláště populární v prostředí Unixu a Linuxu.</p>
+<section id="id1">
+<h4>Klíčové vlastnosti<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Textové GUI:</strong> Umožňuje vytvářet textové uživatelské rozhraní podobné GUI, ale v terminálu.</p></li>
+<li><p><strong>Ovládání rozložení:</strong> Nabízí kontrolu nad umístěním textu, okny a dalšími elementy v terminálu.</p></li>
+<li><p><strong>Rozšířené vstupní možnosti:</strong> Podporuje různé klávesové zkratky a kombinace kláves.</p></li>
+<li><p><strong>Barevná schémata:</strong> Umožňuje použití různých barevných schémat pro zlepšení čitelnosti a estetiky.</p></li>
+<li><p><strong>Optimalizace výkonu:</strong> Efektivně spravuje výstup na obrazovku, což zvyšuje výkon aplikací v terminálu.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>Využití<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Terminálové aplikace:</strong> Ideální pro vytváření aplikací, které běží přímo v textovém terminálu.</p></li>
+<li><p><strong>Interaktivní nástroje:</strong> Používá se pro vytváření interaktivních nástrojů, které vyžadují uživatelský vstup a zobrazují složitější výstup.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Omezení<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Specifické pro Terminál:</strong> Nejlepší využití nachází v prostředí terminálu, není vhodná pro grafické aplikace.</p></li>
+<li><p><strong>Kompatibilita:</strong> Primárně určena pro Unix a Linux, i když existují verze pro jiné systémy.</p></li>
+<li><p><strong>Složitost:</strong> Může být složitější na naučení a použití ve srovnání s grafickými GUI toolkitů.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="gui-graphical-user-interface">
+<h2>GUI - graphical user interface<a class="headerlink" href="#gui-graphical-user-interface" title="Link to this heading">#</a></h2>
+<section id="tkinter">
+<h3>tkinter<a class="headerlink" href="#tkinter" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>interface pro Tk (widget toolkit napsaný v jazyce Tcl)</p></li>
+<li><p>výhody:</p>
+<ul>
+<li><p>simple</p></li>
+<li><p>cross-platform</p></li>
+<li><p>quick</p></li>
+</ul>
+</li>
+<li><p>nevýhody</p>
+<ul>
+<li><p>ošklivý</p></li>
+</ul>
+</li>
+<li><p>standardní výbava v Pythonu. Celkem jednoduché dát dohromady prosté GUI</p></li>
+<li><p>součástí spousta standardních widgets - buttons, frames, text boxes, menu etc.</p></li>
+<li><p>napíšeme si GUI pro todolist</p></li>
+</ul>
+<section id="ttk-bootstrap">
+<h4>ttk bootstrap<a class="headerlink" href="#ttk-bootstrap" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://ttkbootstrap.readthedocs.io/en/latest/#sample-themes">https://ttkbootstrap.readthedocs.io/en/latest/#sample-themes</a>
+<a class="github reference external" href="https://github.com/israel-dryer/ttkbootstrap">israel-dryer/ttkbootstrap</a></p>
+</section>
+</section>
+<section id="qt">
+<h3>Qt<a class="headerlink" href="#qt" title="Link to this heading">#</a></h3>
+<section id="klady">
+<h4>Klady<a class="headerlink" href="#klady" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Kompatibilita napříč platformami:</strong> Funguje na Windows, macOS, Linuxu a různých mobilních platformách.</p></li>
+<li><p><strong>Bohatá sada funkcí:</strong> Nabízí pokročilé komponenty GUI, 2D/3D grafiku, síťovou podporu a multimédia.</p></li>
+<li><p><strong>Vysoký výkon:</strong> Napsáno v C++, což zajišťuje rychlé provedení vhodné pro aplikace s vysokým výkonem.</p></li>
+<li><p><strong>Silná komunita:</strong> Velká komunita a obsáhlá dokumentace.</p></li>
+</ul>
+</section>
+<section id="zapory">
+<h4>Zápory<a class="headerlink" href="#zapory" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Složitost:</strong> Kvůli rozsáhlé sadě funkcí může být příliš složité pro začátečníky.</p></li>
+<li><p><strong>Velikost:</strong> Větší stopa než některé jiné nástroje pro GUI, což nemusí být ideální pro velmi lehké aplikace.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>Omezení<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Založeno na C++:</strong> I když nabízí více kontroly a výkonu, C++ je složitější než Python, což může být pro některé vývojáře překážkou.</p></li>
+</ul>
+</section>
+</section>
+<section id="pyqt">
+<h3>PyQt<a class="headerlink" href="#pyqt" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h4>Klady<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Integrace s Pythonem:</strong> Umožňuje vývojářům v Pythonu přístup k funkcím Qt, kombinuje jednoduchost Pythonu s možnostmi Qt.</p></li>
+<li><p><strong>Bohaté knihovny:</strong> Dědí rozsáhlé knihovny a funkce Qt pro pokročilý vývoj GUI.</p></li>
+<li><p><strong>Silná dokumentace:</strong> Dobře zdokumentováno, což usnadňuje učení a implementaci.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Zápory<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Licencování:</strong> Duální model licencování (GPL a komerční) může být omezením pro některé projekty.</p></li>
+<li><p><strong>Learning curve:</strong> Přestože je v Pythonu, rozsah knihoven Qt znamená strmější křivku učení ve srovnání s jednoduššími nástroji pro GUI.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>Omezení<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Přídavná zátěž výkonu:</strong> Další vrstva Pythonu může přinést nějaké ztráty výkonu ve srovnání s použitím Qt v C++.</p></li>
+<li><p><strong>Menší kontrola:</strong> Ačkoli Python zjednodušuje vývoj, nabízí o něco méně kontroly nad nízkoúrovňovými aspekty než C++.</p></li>
+</ul>
+</section>
+</section>
+<section id="honorable-mentions">
+<h3>Honorable mentions<a class="headerlink" href="#honorable-mentions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/hoffstadt/DearPyGui">hoffstadt/DearPyGui</a></p></li>
+<li><p>pyGObject</p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -522,7 +646,7 @@ g(a, b)
         },
         kernelOptions: {
             name: "python3",
-            path: "./content/functions"
+            path: "./content/ui"
         },
         predefinedOutput: true
     }
@@ -540,20 +664,20 @@ g(a, b)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lambda.html"
+       href="foreword.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lambda funkce a higher order functions</p>
+        <p class="prev-next-title">Interfaces</p>
       </div>
     </a>
     <a class="right-next"
-       href="../typing/foreword.html"
+       href="sample_app.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Typing</p>
+        <p class="prev-next-title">Sample aplikace pro interface</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -564,7 +688,55 @@ g(a, b)
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-command-line-interface">CLI - command line interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-argparse">Balíček <code class="docutils literal notranslate"><span class="pre">argparse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-cmd">Balíček <code class="docutils literal notranslate"><span class="pre">cmd</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klicove-vlastnosti">Klíčové vlastnosti</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vyuziti">Využití</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#omezeni">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balicek-curses">Balíček <code class="docutils literal notranslate"><span class="pre">curses</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Klíčové vlastnosti</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Využití</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Omezení</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-graphical-user-interface">GUI - graphical user interface</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tkinter">tkinter</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ttk-bootstrap">ttk bootstrap</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qt">Qt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klady">Klady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zapory">Zápory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyqt">PyQt</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Klady</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Zápory</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Omezení</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#honorable-mentions">Honorable mentions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -1,0 +1,45 @@
+Traceback (most recent call last):
+  File "/home/vaclav/.local/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/vaclav/.local/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/vaclav/.local/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from unittest.mock import Mock
+
+mock = Mock(return_value=4)
+result = mock(1, 2, 3)
+mock.assert_called_with(1, 2)
+print(result)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAssertionError[0m                            Traceback (most recent call last)
+[0;32m/tmp/ipykernel_1080365/1251938532.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mmock[0m [0;34m=[0m [0mMock[0m[0;34m([0m[0mreturn_value[0m[0;34m=[0m[0;36m4[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mresult[0m [0;34m=[0m [0mmock[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m2[0m[0;34m,[0m [0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mmock[0m[0;34m.[0m[0massert_called_with[0m[0;34m([0m[0;36m1[0m[0;34m,[0m [0;36m2[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mprint[0m[0;34m([0m[0mresult[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/unittest/mock.py[0m in [0;36massert_called_with[0;34m(self, *args, **kwargs)[0m
+[1;32m    927[0m         [0;32mif[0m [0mactual[0m [0;34m!=[0m [0mexpected[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    928[0m             [0mcause[0m [0;34m=[0m [0mexpected[0m [0;32mif[0m [0misinstance[0m[0;34m([0m[0mexpected[0m[0;34m,[0m [0mException[0m[0;34m)[0m [0;32melse[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 929[0;31m             [0;32mraise[0m [0mAssertionError[0m[0;34m([0m[0m_error_message[0m[0;34m([0m[0;34m)[0m[0;34m)[0m [0;32mfrom[0m [0mcause[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    930[0m [0;34m[0m[0m
+[1;32m    931[0m [0;34m[0m[0m
+
+[0;31mAssertionError[0m: expected call not found.
+Expected: mock(1, 2)
+Actual: mock(1, 2, 3)
+

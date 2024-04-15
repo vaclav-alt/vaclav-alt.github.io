@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HTTP API &#8212; Základy programování v Pythonu</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/data_science/api';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Web scraping" href="web_scraping.html" />
+    <link rel="prev" title="PANDAS" href="pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../foreword.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Základy programování v Pythonu - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Základy programování v Pythonu - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../foreword.html">
+                    Základy programování v Pythonu
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Základy programování v Pythonu</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/foreword.html">Úvod</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/introduction.html">O jazyku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cmd.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/instalace.html">Instalace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/first_program.html">První program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/virtualenv.html">Balíčky a virtuální prostředí</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/ides.html">V čem psát Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_first_program.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/jupyter_kernels.html">Virtual environment jako Jupyter kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/foreword.html">Datové typy, datový model a správa paměti</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_types.html">Datové typy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/format.html">Formátovaný výstup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/data_model.html">Datový model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_model_and_types/memory_management.html">CPython data model a správa paměti</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iterations_and_flow_control/foreword.html">Řízení běhu programu</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/conditions.html">Podmínky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/iterace.html">Iterace a cykly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterations_and_flow_control/match.html">Match</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../functions/foreword.html">Funkce</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/funkce.html">Funkce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/lambda.html">Lambda funkce a higher order functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../typing/foreword.html">Typing</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../typing/typing.html">Typing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../files_and_packages/foreword.html">Čtení ze souboru a užitečné balíčky</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/reading_from_files.html">Načítání ze souboru</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../files_and_packages/useful_packages.html">Užitečné balíčky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exceptions/foreword.html">Výjimky</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/general.html">Mechanismus výjimek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/exceptions.html">Výjimky (exceptions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/custom.html">Vlastní výjimky</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../decorator/foreword.html">Dekorátor</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator.html">Dekorátor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decorator/decorator_uses.html">Příklady použití</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../oop/foreword.html">OOP</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oop/oop.html">Objektově orientované programování (OOP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/inheritance.html">Dědičnost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oop/comp_over_inh.html">Composition vs. inheritance</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="foreword.html">Numpy, matplotlib a pandas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="numpy.html"><code class="docutils literal notranslate"><span class="pre">numpy</span></code> - numerical python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas.html">PANDAS</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HTTP API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_scraping.html">Web scraping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev/foreword.html">Development</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev/scope.html">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/custom_module.html">Struktura programu, vlastní moduly a balíčky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/docstring.html">Dokumentace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/testing.html">Unit testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ui/foreword.html">Interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ui/interface.html">Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/sample_app.html">Sample aplikace pro interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../plotly/foreword.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly/plotly.html">Plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly/dash.html">Dash</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data_model_and_types/tasks.html">Úlohy</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/fahrenheit.html">Fahrenheitova stupnice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/uctenka.html">Tisk účtenky</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/valid_string.html">Valid string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/pretty_print.html">Pretty print slovniku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/caesarova_sifra.html">Casesarova šifra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/primes.html">Prvočísla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/monte_carlo_pi.html">Monte Carlo - obsah kruhu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/polynom.html">Polynom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist.html">TODO list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/week_04.html">Úlohy pro 4. týden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/shopping_cart.html">Nákupní košík</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_file.html">Context manager - SafeFileEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/context_manager_time.html">Timer jako context manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/solutions.html">Úlohy -řešení</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/stability_sol.html">Stabilita algoritmu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/todolist_sol.html">TODO list - řešení</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literatura</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/data_science/api.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>HTTP API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#http-a-balik-requests">HTTP a balík <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-s-parametry">API s parametry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cviceni-1">Cvičení 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cviceni-2">Cvičení 2</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="http-api">
+<h1>HTTP API<a class="headerlink" href="#http-api" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>API: application programming interface</p></li>
+<li><p>HTTP: hyper text transfer protocol</p></li>
+<li><p>REST: representational state transfer <a class="reference external" href="https://www.ibm.com/topics/rest-apis">What is a REST API</a></p></li>
+</ul>
+<p>Nás zajimá: RESTful HTTP API</p>
+<p>Jako RESTful HTTP API se obykle označuje rozhraní operující přes HTTP, které obvykle poskytuje nějaká data ve formě JSON.</p>
+<p><a class="reference external" href="https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/">ZDE</a> je seznam veřejných REST API, která nevyžadují žádnou autentizaci.</p>
+<p>Kromě toho můžeme využívat API tří meteostanic patřících Unicornu:</p>
+<ul class="simple">
+<li><p>Petrovka: <a class="reference external" href="https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/ecdf51f870ae48b69e10fcd6cc2c7ef3/weatherConditions/getLast?code=PETROVKA&amp;amp;type=1">https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/ecdf51f870ae48b69e10fcd6cc2c7ef3/weatherConditions/getLast?code=PETROVKA&amp;type=1</a></p></li>
+<li><p>Strachovice: <a class="reference external" href="https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/590f7ec72ad34126a5650fdfd807b3b6/weatherConditions/getLast?code=STRACHOVICE&amp;amp;type=1">https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/590f7ec72ad34126a5650fdfd807b3b6/weatherConditions/getLast?code=STRACHOVICE&amp;type=1</a></p></li>
+<li><p>Meltemi: <a class="reference external" href="https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/36edc26c55a345798f3642ba8d22d80b/weatherConditions/getLast?code=MELTEMI&amp;amp;type=1">https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/36edc26c55a345798f3642ba8d22d80b/weatherConditions/getLast?code=MELTEMI&amp;type=1</a></p></li>
+</ul>
+<section id="http-a-balik-requests">
+<h2>HTTP a balík <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#http-a-balik-requests" title="Link to this heading">#</a></h2>
+<p>Ke komunikaci prostřednictvím HTTP můžeme v Pythonu použít například balík requests. Použití lze shrnout do 3 kroků:</p>
+<ol class="arabic simple">
+<li><p>sestavení požadavku - tj. poskládání URL podle instrukcí z dokumentace k danému API. U jednodušších API se jedná pouze o adresu, u složitějších lze předávat nějaké doplňující parametery, typicky metodou GET (parametry se vepisují přímo do adresy). U API vyžadujících autentizaci je obvykle nutné sestavit ještě hlavičku (header) HTTP požadavku.</p></li>
+<li><p>odeslání požadavku serveru (+ případná doplňující komunikace</p></li>
+<li><p>zpracování výsledků</p></li>
+</ol>
+<p>Součástí HTTP komunikace je tzv. <em>status code</em>, číselný kód reprezentující stav komunikace. Asi nejčastější hodnoty jsou:</p>
+<ul class="simple">
+<li><p>200: OK</p></li>
+<li><p>400: Bad request</p></li>
+<li><p>401: Unauthorized</p></li>
+<li><p>403: Forbidden</p></li>
+<li><p>404: Not found</p></li>
+</ul>
+<p>Kompletní seznam lze nalézt např. na <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">wiki</a>.</p>
+<p>Ukažme si použití na API <a class="reference external" href="https://dog.ceo/api/breeds/image/random">https://dog.ceo/api/breeds/image/random</a>, které nám zprostředkuje náhodný obrázek psa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://dog.ceo/api/breeds/image/random&quot;</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># odeslání požadavku metodou get</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span> <span class="c1"># 200 - OK, tj. má smysl zpracovat data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>      <span class="c1"># </span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># data pouze hezky vytiskneme</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;message&quot;: &quot;https://images.dog.ceo/breeds/spaniel-japanese/n02085782_2128.jpg&quot;,
+    &quot;status&quot;: &quot;success&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Součástí data, která server vrací je adresa obrázku se psem. Použijeme pomocné funkce prostředí Jupyter, abychom si obrázek zobrazili.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://dog.ceo/api/breeds/image/random&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">image_url</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0ed0e6f5101da8574bf203d2b1f85ad5dcc154fe430a2ef8dbc1fe2c7573ae11.jpg" src="../../_images/0ed0e6f5101da8574bf203d2b1f85ad5dcc154fe430a2ef8dbc1fe2c7573ae11.jpg" />
+</div>
+</div>
+<p>Podobný příklad s komiksem XKCD:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://xkcd.com/info.0.json&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">img_url</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;img&quot;</span><span class="p">]</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">img_url</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8b2204c991c80a63f94488ba3ade31c1ad329552d6df3152d18b916575e2f39b.png" src="../../_images/8b2204c991c80a63f94488ba3ade31c1ad329552d6df3152d18b916575e2f39b.png" />
+</div>
+</div>
+</section>
+<section id="api-s-parametry">
+<h2>API s parametry<a class="headerlink" href="#api-s-parametry" title="Link to this heading">#</a></h2>
+<p>Asi nejjednodušší způsob, jak předat parametry, je využít přímo metodu <code class="docutils literal notranslate"><span class="pre">requests.get</span></code>, konkrétně její argument <code class="docutils literal notranslate"><span class="pre">params</span></code>, jenž očekává slovník parametrů, který má k požadavku připojit.</p>
+<p>Zkusme to u API, které vrací seznam univerzit v zemi, předané v parametru <code class="docutils literal notranslate"><span class="pre">country</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://universities.hipolabs.com/search&quot;</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;Czech Republic&quot;</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">uni</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">uni</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anglo-American University
+Charles University Prague
+Czech Technical University of Prague
+Czech University of Agriculture Prague
+Academy of Performing Arts, Film and TV Fakulty
+University of South Bohemia
+Mendel University of Agriculture and Forestry
+Prague International University
+Masaryk University
+University of Ostrava
+Prague College
+Silesian University
+Tiffin University Prague
+University of Jan Evangelista Purkyne
+University of Northern Virginia, Prague Campus
+University of New York in Prague
+University of Pardubice
+Palacký University Olomouc
+Tomas Bata University in Zlin
+University of Veterinary and Pharmaceutical Science
+Technical University of Mining and Metallurgy Ostrava
+Prague Institute of Chemical Technology
+Cevro Institut College
+University of Economics Prague
+Technical University of Liberec
+University of Education Hradec Kralove
+Brno University of Technology
+University of West Bohemia
+Střední průmyslová škola Mladá Boleslav
+Anglo-American University
+Charles University Prague
+Czech Technical University of Prague
+Czech University of Agriculture Prague
+Academy of Performing Arts, Film and TV Fakulty
+University of South Bohemia
+Mendel University of Agriculture and Forestry
+Prague International University
+Masaryk University
+University of Ostrava
+Prague College
+Silesian University
+Tiffin University Prague
+University of Jan Evangelista Purkyne
+University of Northern Virginia, Prague Campus
+University of New York in Prague
+University of Pardubice
+Palacký University Olomouc
+Tomas Bata University in Zlin
+University of Veterinary and Pharmaceutical Science
+Technical University of Mining and Metallurgy Ostrava
+Prague Institute of Chemical Technology
+Cevro Institut College
+University of Economics Prague
+Technical University of Liberec
+University of Education Hradec Kralove
+Brno University of Technology
+University of West Bohemia
+Střední průmyslová škola Mladá Boleslav
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cviceni-1">
+<h2>Cvičení 1<a class="headerlink" href="#cviceni-1" title="Link to this heading">#</a></h2>
+<p>Napište program, který z <a class="reference external" href="https://sv443.net/jokeapi/v2/joke/Programming/rand">JokeAPI</a> stáhne vtip o programování, který nebude nevhodný a bude složen ze dvou částí (setup a delivery). Nejprve vypíše <em>setup</em> část vtipu a po nějaké prodlevě (<code class="docutils literal notranslate"><span class="pre">time.sleep</span></code>) vypíše zbytek, tj. <em>delivery</em>.</p>
+<p>Dokumentace: <a class="reference external" href="https://sv443.net/jokeapi/v2/">https://sv443.net/jokeapi/v2/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&quot;</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;blacklistFlags&quot;</span><span class="p">:</span> <span class="s2">&quot;nsfw,religious,political,racist,sexist&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;twopart&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;setup&quot;</span><span class="p">])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;delivery&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How do you generate a random string?
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Put a Windows user in front of Vim and tell them to exit.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cviceni-2">
+<h2>Cvičení 2<a class="headerlink" href="#cviceni-2" title="Link to this heading">#</a></h2>
+<p>Napište program, který bude v pravidelných intervalech sledovat rychlost větru z Unicorních meteostanic a bude je vykreslovat do grafu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url1</span> <span class="o">=</span> <span class="s2">&quot;https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/ecdf51f870ae48b69e10fcd6cc2c7ef3/weatherConditions/getLast?code=PETROVKA&amp;type=1&quot;</span>
+<span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/590f7ec72ad34126a5650fdfd807b3b6/weatherConditions/getLast?code=STRACHOVICE&amp;type=1&quot;</span>
+<span class="n">url3</span> <span class="o">=</span> <span class="s2">&quot;https://uuappg01-eu-w-1.plus4u.net/ucl-weatherstation-maing01/36edc26c55a345798f3642ba8d22d80b/weatherConditions/getLast?code=MELTEMI&amp;type=1&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;currentConditions&quot;: {
+        &quot;type1&quot;: {
+            &quot;did&quot;: &quot;001D0A7100F3&quot;,
+            &quot;timestamp&quot;: &quot;2023-03-17T10:14:33.000Z&quot;,
+            &quot;lsid&quot;: 575934,
+            &quot;type&quot;: 1,
+            &quot;txid&quot;: 1,
+            &quot;temp&quot;: 0.8,
+            &quot;hum&quot;: 47.9,
+            &quot;dewPoint&quot;: -9.1,
+            &quot;wetBulb&quot;: -3.8,
+            &quot;heatIndex&quot;: 0.2,
+            &quot;windChill&quot;: -5.5,
+            &quot;thwIndex&quot;: -6.1,
+            &quot;thswIndex&quot;: -4.5,
+            &quot;windSpeedLast&quot;: 25.74944,
+            &quot;windDirLast&quot;: 271,
+            &quot;windSpeedAvgLast1Min&quot;: 30.979795,
+            &quot;windDirScalarAvgLast1Min&quot;: 272,
+            &quot;windSpeedAvgLast2Min&quot;: 33.2811512,
+            &quot;windDirScalarAvgLast2Min&quot;: 272,
+            &quot;windSpeedHiLast2Min&quot;: 38.62416,
+            &quot;windDirAtHiSpeedLast2Min&quot;: 271,
+            &quot;windSpeedAvgLast10Min&quot;: 30.3682458,
+            &quot;windDirScalarAvgLast10Min&quot;: 272,
+            &quot;windSpeedHiLast10Min&quot;: 45.06152,
+            &quot;windDirAtHiSpeedLast10Min&quot;: 271,
+            &quot;rainSize&quot;: 2,
+            &quot;rainRateLast&quot;: 0,
+            &quot;rainRateHi&quot;: 0,
+            &quot;rainfallLast15Min&quot;: 0,
+            &quot;rainRateHiLast15Min&quot;: 0,
+            &quot;rainfallLast60Min&quot;: 0,
+            &quot;rainfallLast24Hr&quot;: 2,
+            &quot;rainStorm&quot;: 4,
+            &quot;solarRad&quot;: 438,
+            &quot;uvIndex&quot;: 3,
+            &quot;rxState&quot;: 0,
+            &quot;transBatteryFlag&quot;: 0,
+            &quot;rainfallDaily&quot;: 0,
+            &quot;rainfallMonthly&quot;: 298,
+            &quot;rainfallYear&quot;: 5129,
+            &quot;rainStormLast&quot;: 52,
+            &quot;rainStormStartAt&quot;: &quot;2023-03-16T08:49:01.000Z&quot;,
+            &quot;rainStormLastStartAt&quot;: &quot;2023-03-13T23:50:00.000Z&quot;,
+            &quot;rainStormLastEndAt&quot;: &quot;2023-03-15T19:01:00.000Z&quot;,
+            &quot;awid&quot;: &quot;ecdf51f870ae48b69e10fcd6cc2c7ef3&quot;,
+            &quot;gateway&quot;: &quot;PETROVKA&quot;,
+            &quot;sys&quot;: {
+                &quot;cts&quot;: &quot;2023-03-17T10:19:34.051Z&quot;,
+                &quot;mts&quot;: &quot;2023-03-17T10:19:34.051Z&quot;,
+                &quot;rev&quot;: 0
+            },
+            &quot;id&quot;: &quot;64143eb619597c00407b4753&quot;
+        },
+        &quot;type2&quot;: null,
+        &quot;type3&quot;: {
+            &quot;did&quot;: &quot;001D0A7100F3&quot;,
+            &quot;timestamp&quot;: &quot;2023-03-17T10:14:33.000Z&quot;,
+            &quot;lsid&quot;: 575932,
+            &quot;type&quot;: 3,
+            &quot;barSeaLevel&quot;: 76.15936,
+            &quot;barTrend&quot;: 0.03556,
+            &quot;barAbsolute&quot;: 65.28562,
+            &quot;awid&quot;: &quot;ecdf51f870ae48b69e10fcd6cc2c7ef3&quot;,
+            &quot;gateway&quot;: &quot;PETROVKA&quot;,
+            &quot;sys&quot;: {
+                &quot;cts&quot;: &quot;2023-03-17T10:19:34.152Z&quot;,
+                &quot;mts&quot;: &quot;2023-03-17T10:19:34.152Z&quot;,
+                &quot;rev&quot;: 0
+            },
+            &quot;id&quot;: &quot;64143eb619597c00407b4759&quot;
+        },
+        &quot;type4&quot;: {
+            &quot;did&quot;: &quot;001D0A7100F3&quot;,
+            &quot;timestamp&quot;: &quot;2023-03-17T10:14:33.000Z&quot;,
+            &quot;lsid&quot;: 575933,
+            &quot;type&quot;: 4,
+            &quot;tempIn&quot;: 13.5,
+            &quot;humIn&quot;: 34.6,
+            &quot;dewPointIn&quot;: -1.8,
+            &quot;heatIndexIn&quot;: 12.1,
+            &quot;awid&quot;: &quot;ecdf51f870ae48b69e10fcd6cc2c7ef3&quot;,
+            &quot;gateway&quot;: &quot;PETROVKA&quot;,
+            &quot;sys&quot;: {
+                &quot;cts&quot;: &quot;2023-03-17T10:19:34.103Z&quot;,
+                &quot;mts&quot;: &quot;2023-03-17T10:19:34.103Z&quot;,
+                &quot;rev&quot;: 0
+            },
+            &quot;id&quot;: &quot;64143eb619597c00407b4756&quot;
+        }
+    },
+    &quot;gateway&quot;: {
+        &quot;code&quot;: &quot;PETROVKA&quot;,
+        &quot;name&quot;: &quot;&lt;uu5string/&gt;&lt;UU5.Bricks.Lsi&gt;&lt;UU5.Bricks.Lsi.Item language=\&quot;en\&quot;&gt;Peter&#39;s Chalets&lt;/UU5.Bricks.Lsi.Item&gt;&lt;UU5.Bricks.Lsi.Item language=\&quot;cs\&quot;&gt;Petrovy boudy&lt;/UU5.Bricks.Lsi.Item&gt;&lt;/UU5.Bricks.Lsi&gt;&quot;,
+        &quot;desc&quot;: &quot;&quot;,
+        &quot;icon&quot;: &quot;uubml-house&quot;,
+        &quot;additionalInformation&quot;: {
+            &quot;address&quot;: &quot;Krkono\u0161e&quot;,
+            &quot;web&quot;: &quot;https://petrovyboudy.cz&quot;,
+            &quot;phone&quot;: &quot;&quot;,
+            &quot;gps&quot;: &quot;50.7725608, 15.6123086&quot;
+        },
+        &quot;status&quot;: &quot;online&quot;,
+        &quot;config&quot;: {
+            &quot;moduleTimers&quot;: {
+                &quot;heartbeat&quot;: 1800,
+                &quot;config&quot;: 10800,
+                &quot;weatherConditions&quot;: {
+                    &quot;get&quot;: 300,
+                    &quot;send&quot;: 600
+                }
+            }
+        },
+        &quot;lastActivity&quot;: &quot;2023-03-27T09:50:01.969Z&quot;
+    },
+    &quot;todayWeather&quot;: {
+        &quot;loTemp&quot;: null,
+        &quot;hiTemp&quot;: null,
+        &quot;loTimestamp&quot;: null,
+        &quot;hiTimestamp&quot;: null,
+        &quot;hiWindSpeed&quot;: null,
+        &quot;hiWindSpeedTimestamp&quot;: null
+    },
+    &quot;uuAppErrorMap&quot;: {
+        &quot;ucl-weatherstation-main/weatherConditions/getLast/unsupportedKeys&quot;: {
+            &quot;type&quot;: &quot;warning&quot;,
+            &quot;message&quot;: &quot;DtoIn contains unsupported keys.&quot;,
+            &quot;paramMap&quot;: {
+                &quot;unsupportedKeyList&quot;: [
+                    &quot;$.type&quot;
+                ]
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/data_science"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PANDAS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="web_scraping.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Web scraping</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#http-a-balik-requests">HTTP a balík <code class="docutils literal notranslate"><span class="pre">requests</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-s-parametry">API s parametry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cviceni-1">Cvičení 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cviceni-2">Cvičení 2</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Václav Alt, Unicorn University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
