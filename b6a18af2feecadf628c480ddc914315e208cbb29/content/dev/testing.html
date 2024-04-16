@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
@@ -489,12 +489,12 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------
-Ran 1 test in 0.000s
+Ran 1 test in 0.001s
 
 OK
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x77c7fa7869b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x73866304d8d0&gt;
 </pre></div>
 </div>
 </div>
@@ -525,18 +525,18 @@ OK
 FAIL: test_add (__main__.TestAdd)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_1080365/631272172.py&quot;, line 6, in test_add
+  File &quot;/tmp/ipykernel_1146695/631272172.py&quot;, line 6, in test_add
     self.assertEqual(add(2, 1), 4)
 AssertionError: 3 != 4
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------
-Ran 1 test in 0.001s
+Ran 1 test in 0.000s
 
 FAILED (failures=1)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x77c7fa785720&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x73866304e3b0&gt;
 </pre></div>
 </div>
 </div>
@@ -564,12 +564,12 @@ FAILED (failures=1)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------------------------------------
-Ran 1 test in 0.001s
+Ran 1 test in 0.002s
 
 OK
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x77c7f860dc30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7386606d68f0&gt;
 </pre></div>
 </div>
 </div>
@@ -604,7 +604,7 @@ OK
 FAIL: test_add (__main__.TestAdd) (a=3, b=2)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_1080365/1038771018.py&quot;, line 15, in test_add
+  File &quot;/tmp/ipykernel_1146695/1038771018.py&quot;, line 15, in test_add
     self.assertEqual(add(a, b), a+b)
 AssertionError: 3 != 5
 </pre></div>
@@ -613,7 +613,7 @@ AssertionError: 3 != 5
 FAIL: test_add (__main__.TestAdd) (a=4, b=2)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &quot;/tmp/ipykernel_1080365/1038771018.py&quot;, line 15, in test_add
+  File &quot;/tmp/ipykernel_1146695/1038771018.py&quot;, line 15, in test_add
     self.assertEqual(add(a, b), a+b)
 AssertionError: 4 != 6
 </pre></div>
@@ -624,7 +624,7 @@ Ran 1 test in 0.000s
 FAILED (failures=2)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x77c7f860d1e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7386606d5fc0&gt;
 </pre></div>
 </div>
 </div>
@@ -669,7 +669,7 @@ Ran 3 tests in 0.001s
 OK
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x77c7f860fe80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x73866304e8c0&gt;
 </pre></div>
 </div>
 </div>
@@ -682,30 +682,18 @@ OK
 
 <span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1080365</span><span class="o">/</span><span class="mf">1251938532.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">mock</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">result</span> <span class="o">=</span> <span class="n">mock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/unittest/mock.py</span> in <span class="ni">assert_called_with</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">927</span>         <span class="k">if</span> <span class="n">actual</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">928</span>             <span class="n">cause</span> <span class="o">=</span> <span class="n">expected</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">929</span>             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">())</span> <span class="kn">from</span> <span class="nn">cause</span>
-<span class="g g-Whitespace">    </span><span class="mi">930</span> 
-<span class="g g-Whitespace">    </span><span class="mi">931</span> 
-
-<span class="ne">AssertionError</span>: expected call not found.
-<span class="ne">Expected</span>: mock(1, 2)
-<span class="ne">Actual</span>: mock(1, 2, 3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>expected call not found.
+Expected: mock(1, 2)
+Actual: mock(1, 2, 3)
 </pre></div>
 </div>
 </div>
@@ -725,6 +713,14 @@ OK
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,6 +730,11 @@ OK
 <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">&quot;math.sqrt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
     <span class="n">mock</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -747,6 +748,14 @@ OK
     <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.23606797749979
 </pre></div>
 </div>
 </div>

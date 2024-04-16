@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=11440e7e" />
@@ -459,39 +459,43 @@ document.write(`
 <li><p>Všechny ostatní</p></li>
 </ol>
 <p>K <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> dochází ve fázi čtení, tj. když parser prochází zdojový kód. Je to tak jediná chyba, která se za normálních okolností nedá zachytit (někdy jo, ale o tom jindy). Všechny ostatní chyby lze zachytit a zareagovat na ně nějakým žádoucím způsobem. Začněme jednoduchým příkladem dobře čitelné chyby. Když dojde k neošetřené chybě, Pythoní interpret nám napíše, k jaké chybě došlo a vypíše její <code class="docutils literal notranslate"><span class="pre">stack</span> <span class="pre">trace</span></code> (někdy traceback), tedy kde k té chybě došlo</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="c1"># raises ZeroDivisionError</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1080382</span><span class="o">/</span><span class="mf">1701595597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="c1"># raises ZeroDivisionError</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1146194</span><span class="o">/</span><span class="mf">1701595597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="mi">2</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="o">----&gt;</span> <span class="mi">3</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="c1"># raises ZeroDivisionError</span>
 
-<span class="ne">ZeroDivisionError</span>: division by zero
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
 </pre></div>
 </div>
-</div>
-</div>
 <p>Zde vidíme, že chyba je typu <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> a došlo k ní na řádku 3. To je celkem čitelné. Zkusme chybu zabalit do nějaké funkce. a podívat se, jak se traceback změní.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 
 <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
 <p>Traceback je teď složitější, ale stále čitelný - postupuje zvenku dovnitř a ukazuje, v jaké funkci na jaké řádku k chybě došlo. To je velmi užitečné.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">unicorn</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">exceptions</span><span class="o">/</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">Cell</span> <span class="mi">6</span> <span class="n">line</span> <span class="mi">4</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+      <span class="mi">2</span>     <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="o">----&gt;</span> <span class="mi">4</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">unicorn</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">exceptions</span><span class="o">/</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">Cell</span> <span class="mi">6</span> <span class="n">line</span> <span class="mi">2</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</pre></div>
+</div>
 <section id="try-except">
 <h2>Try / except<a class="headerlink" href="#try-except" title="Link to this heading">#</a></h2>
 <p>Chyby - výjimky - takzvaně <em>zachytáváme</em> a činíme tak pomocí dvojice bloků <code class="docutils literal notranslate"><span class="pre">try</span></code> a <code class="docutils literal notranslate"><span class="pre">except</span></code>. V bloku <code class="docutils literal notranslate"><span class="pre">try</span></code> spouštíme kód, u kterého máme podezření, že by mohl vyvolat (raise) nějakou výjimku, blokem <code class="docutils literal notranslate"><span class="pre">except</span></code> výjimku zachytáváme (v jiných jazycích se tento blok nazývá catch block).</p>
@@ -506,6 +510,12 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;oi, we do not divide by zero&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the rest of the program&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oi, we do not divide by zero
+the rest of the program
 </pre></div>
 </div>
 </div>
@@ -528,6 +538,12 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ejhle, ono to funguje&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;zbytek programu...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ejhle, ono to funguje
+zbytek programu...
 </pre></div>
 </div>
 </div>
@@ -556,6 +572,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is the second except block
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="vyjimka-jako-objekt">
@@ -579,6 +600,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;non-existent-key&#39;,)
+rest of the program
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  File &quot;/tmp/ipykernel_1148586/4267090218.py&quot;, line 8, in &lt;module&gt;
+    a_funky_function()
+  File &quot;/tmp/ipykernel_1148586/4267090218.py&quot;, line 5, in a_funky_function
+    d[&quot;non-existent-key&quot;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Je možné zachytit i zcela obecnou výjimku - všechny výjimky jsou typu <code class="docutils literal notranslate"><span class="pre">Exception</span></code>:</p>
 <div class="cell docutils container">
@@ -587,6 +620,11 @@ document.write(`
     <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># toto zachytí jakoukoliv výjimku</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;division by zero&#39;,)
 </pre></div>
 </div>
 </div>
@@ -613,8 +651,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found.&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -622,9 +660,15 @@ document.write(`
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File read successfully.&quot;</span><span class="p">)</span>
 <span class="k">finally</span><span class="p">:</span>
-    <span class="k">if</span> <span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span> <span class="c1"># overi, jestli symbol f vubec existuje, tj. jestli se soubor vubec povedlo otevrit</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;file&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span> <span class="c1"># overi, jestli symbol f vubec existuje, tj. jestli se soubor vubec povedlo otevrit</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File not found.
+File closed.
 </pre></div>
 </div>
 </div>
@@ -646,15 +690,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;argument x is not supposed to be zero&#39;,)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="kdy-zachytit">
 <h2>Kdy zachytit?<a class="headerlink" href="#kdy-zachytit" title="Link to this heading">#</a></h2>
 <p>Obecně se říká, že výjimka by se měla zachytit co nejblíže svému vzniku. Důvodů je řada, mezi hlavní patří např. kontext, za kterého výjimka vznikla (je dostupný, čitelný a výjimka snadno odstranitelná), čitelnost nebo třeba rychlost - v průběhu zpracování výjimky dochází k něčemu, čemu se říká stack unwinding - odvíjení zásobníku - Python postupně prochází zásobník volaných funkcí (call stack) a hledá, zda tam není někdo, koho ta výjimka zajímá (<code class="docutils literal notranslate"><span class="pre">except</span></code> blok). Když nikoho nenajde, program selže.</p>
 <p>Následující série příkladů ilustruje, jaký vliv na celkový program má to, kde výjimku zachytíte. Můžete si k zachycení přípsat i traceback.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">may_throw</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">may_throw</span><span class="p">():</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;oh no, it happened&quot;</span><span class="p">)</span>
         
 <span class="k">def</span> <span class="nf">subprogram</span><span class="p">():</span>
@@ -671,7 +718,36 @@ document.write(`
 <span class="n">mainprogram</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span>                              <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1146825</span><span class="o">/</span><span class="mf">3985230583.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mainprogram finished&quot;</span><span class="p">)</span>
+     <span class="mi">14</span> 
+<span class="o">---&gt;</span> <span class="mi">15</span> <span class="n">mainprogram</span><span class="p">()</span>
+
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1146825</span><span class="o">/</span><span class="mf">3985230583.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">mainprogram</span><span class="p">()</span>
+     <span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is the main program, doing main program things&quot;</span><span class="p">)</span>
+     <span class="mi">11</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;calling subprogram&quot;</span><span class="p">)</span>
+<span class="o">---&gt;</span> <span class="mi">12</span>     <span class="n">subprogram</span><span class="p">()</span>
+     <span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mainprogram finished&quot;</span><span class="p">)</span>
+     <span class="mi">14</span> 
+
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1146825</span><span class="o">/</span><span class="mf">3985230583.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">subprogram</span><span class="p">()</span>
+      <span class="mi">4</span> <span class="k">def</span> <span class="nf">subprogram</span><span class="p">():</span>
+      <span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is subprogram, doing subprogram things&quot;</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">6</span>     <span class="n">may_throw</span><span class="p">()</span>
+      <span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;subprogram finished&quot;</span><span class="p">)</span>
+      <span class="mi">8</span> 
+
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1146825</span><span class="o">/</span><span class="mf">3985230583.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">may_throw</span><span class="p">()</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">may_throw</span><span class="p">():</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;oh no, it happened&quot;</span><span class="p">)</span>
+      <span class="mi">3</span> 
+      <span class="mi">4</span> <span class="k">def</span> <span class="nf">subprogram</span><span class="p">():</span>
+      <span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;this is subprogram, doing subprogram things&quot;</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">oh</span> <span class="n">no</span><span class="p">,</span> <span class="n">it</span> <span class="n">happened</span>
+</pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -693,6 +769,16 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mainprogram finished&quot;</span><span class="p">)</span>
         
 <span class="n">mainprogram</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is the main program, doing main program things
+calling subprogram
+this is subprogram, doing subprogram things
+oh no it failed
+subprogram finished
+mainprogram finished
 </pre></div>
 </div>
 </div>
@@ -718,6 +804,14 @@ document.write(`
     <span class="n">mainprogram</span><span class="p">()</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;oh no it failed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is the main program, doing main program things
+calling subprogram
+this is subprogram, doing subprogram things
+oh no it failed
 </pre></div>
 </div>
 </div>
