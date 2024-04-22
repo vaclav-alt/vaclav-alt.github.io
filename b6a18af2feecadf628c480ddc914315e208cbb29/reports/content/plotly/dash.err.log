@@ -55,7 +55,7 @@ app.run_server(mode="inline")
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1146215/3609927044.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1574294/3609927044.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0;32mfrom[0m [0mjupyter_dash[0m [0;32mimport[0m [0mJupyterDash[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0;32mfrom[0m [0mdash[0m [0;32mimport[0m [0mdcc[0m [0;31m# dash core components[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;32mfrom[0m [0mdash[0m [0;32mimport[0m [0mhtml[0m[0;34m[0m[0;34m[0m[0m
